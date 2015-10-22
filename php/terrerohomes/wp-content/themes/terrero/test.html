@@ -1,0 +1,178 @@
+<html>
+<head>
+	<title>
+	</title>
+
+	<style type="text/css">
+		/*This is using an autoprefixer.  Even though with Safari 9 flex will finally be 100% supported, it's still a good idea to support legacy.*/
+*, *::after, *::before {
+  /*basic reset*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  /*take up all available height*/
+  height: 100%
+}
+body {
+  font: 100% 'Oswald', sans-serif;
+}
+/*This is to target IE11 only.  IE does not play nice with min-heights and column wrap. More modifications will probably be needed, as it is a little buggy in IE11.  The new Edge browser is supposed to fix this flex bug and others.*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .wrapper {
+    height: 100%;
+    flex-flow: column nowrap
+  }
+  main {
+    flex: 1 !important;
+    align-items: flex-start;
+  }
+}
+.wrapper {
+  /*Fill all possible height with the wrapper. I believe height: 100% will also work.*/
+  min-height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  /*this is the key to keeping elements such as the nav at the top and the footer at the bottom.  This might not always be needed.*/
+  justify-content: space-between;
+}
+header {
+  text-align: center;
+  background: rgb(55,55,55);
+  color: #fff;
+  display: flex;
+  flex-flow: row wrap;
+}
+/*I was lazy and I didn't create an image for the logo*/
+h1 { 
+  padding: 10px;
+  font-size: 2.7em;
+  color: rgb(245,235,245);
+  text-align: center;
+}
+/*You could also wrap this in a nav for extra semantic goodness*/
+.nav {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  list-style: none;
+  padding-right: 10px;
+  /*this will push our nav all the way to the right.  Then we don't have to worry about the width*/
+  margin-left: auto
+}
+.nav > li {
+  border-right: 1px solid #fff;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff
+}
+.nav > li:first-child {
+  border-left: 1px solid #fff
+}
+a {
+  text-decoration: none;
+  display: block;
+  color: #fff;
+  font-size: 1.5em;
+  transition: all 0.5s ease-in-out;
+  padding: 8px
+}
+a:hover {
+  background: darkgreen;
+  color: #000
+}
+main {
+  display: flex;
+  flex-flow: row wrap;
+  /*this will fill up the remaining space for our content*/
+  flex: 1 1 100%;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+h2 {
+  width: 100%;
+  background: rgb(75,75,75);
+  /*this will make sure the content's height doesn't stretch*/
+  margin-bottom: auto;
+  color: rgb(205,205,205);
+  font-weight: 100;
+  padding: 10px 0
+}
+main > section {
+  /*this will essentially make it a 3 column layout.  Change it to whatever is needed.*/
+  width: 33.333%;
+  text-align: center;
+}
+footer {
+  background: lightblue;
+  text-align: center;
+  padding: 5px;
+  /*you could also get rid of the justify-content and use margin-top: auto*/
+}
+/*Change these generic media queries to suit your needs, especially with retina displays*/
+@media screen and (max-width: 568px) {
+  h1 {
+    width: 100%;
+    font-size: 2.0em
+  }
+  .nav {
+    min-width: 100%;
+    margin: auto;
+    padding: 0;
+  }
+  .nav > li {
+    flex: 1
+  }
+  .nav > li > a {
+    font-size: 1.0em
+  }
+  h2 {
+    font-size: 1.2em
+  }
+  main {
+    /*go to a more vertical layout*/
+    flex-flow: column wrap;
+  }
+  main > section {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    /*give the sections full height*/
+    flex: 1;
+    /*this will center the paragraphs and keep them vertically centered*/
+    display: flex;
+    align-items: center;
+  }
+  main > section > p {
+    width: 100%
+  }
+}
+	</style>
+</head>
+<body>
+	<div class='wrapper'>
+  <header>
+    <h1>Company Logo</h1>
+    <ul class='nav'>
+      <li><a href='#'>About</a></li>
+      <li><a href='#'>Shop</a></li>
+      <li><a href='#'>Cart</a></li>
+      <li><a href='#'>Location</a></li>
+    </ul>
+  </header>
+  <main>
+    <h2>Our company motto, or perhaps an inspiring image</h2>
+    <section>
+  <p>A nice article or something.</p>
+       
+      </section>
+   <section>
+  <p>Perhaps a fancy image here.</p>
+      </section>
+        <section>
+  <p>More awesome content.</p>
+      </section>
+  </main>
+  <footer>A footer that will always stay down.</footer>
+</div>
+</body>
+</html>
