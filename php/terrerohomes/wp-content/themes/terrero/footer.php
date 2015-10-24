@@ -16,17 +16,28 @@
 			<ul>
 				<li>
 					<div class="col">
-						Quick Links
+						<a href="/">
+							<div>Home</div>
+						</a>
+						<a href="/listings">
+							<div>Listings</div>
+						</a>
+						<a href="/contactus">
+							<div>Contact us</div>
+						</a>
 					</div>
 				</li>
 				<li>
 					<div class="col">
-						Contact
+						<div>Jose Terrero</div>
+						<div>jose@terrerohomes.com</div>
+						<div>HERE YOUR ADDRESS</div>
 					</div>
 				</li>
 				<li>
 					<div class="col">
 						Share
+						??
 					</div>
 				</li>
 			</ul>
@@ -64,48 +75,70 @@ $(function(){
 
 	function TerreroSlideShow($el) {
 		this.$el = $el || $('.slide-show');
+		this.$carousel = this.$el.find('.carousel');
 		this.duration = 250; //quater of a second by defualt
 		this.currentPosition = 0;
 		this.init();
 	};
 
-	TerreroSlideShow.prototype.swipe = function(direction) {
-		var $el = this.$el;
-		var direction =  {
-			left: true
-		};
-		var slideWidth = $el.find('li').width();		
+	// get transform will get hoisted to the top of the function scope
+	function getTransform() {
+		var prefixes = [
+			'',
+			'-webkit-',
+			'-moz-',
+			'-ms-'
+		];
 		
-		if (direction.left) {
-			this.currentPosition += slideWidth;
-			
-		} else {
-			this.currentPosition -= slideWidth;
-		}
+		var tranformOptions = {};
+		var currentPosition = this.currentPosition;
+		
+		$.each(prefixes, function (i, prefix) {
+			tranformOptions[prefix + 'transform'] = 'translate3d('+ currentPosition +'px, 0px, 0px)';
+		});
 
-		$el.css(getTransform.call(this));
+		return tranformOptions;
+	}
 
-		// get transform will get hoisted to the top of the function scope
-		function getTransform() {			
-			var prefixes = [
-				'',
-				'-webkit-',
-				'-moz-',
-				'-ms-'
-			];
-			
-			var tranformOptions = {};
-			var currentPosition = this.currentPosition;
-			
-			$.each(prefixes, function (i, prefix) {
-				tranformOptions[prefix + 'transform'] = 'translate('+ currentPosition +'px, 0px, 0px)';
-			});
+	TerreroSlideShow.prototype.nextSlide = function() {
+		
+		var $el = this.$el;				
+		this.currentPosition -= this.viewerWidth;		
+		
+		this.$el.addClass('transition');
 
-			return tranformOptions;
-		}
+		this.swipe();
+		
 	};
-	TerreroSlideShow.prototype.init = function(first_argument) {
-		setTimeout(this.swipe.bind(this), 1000);
+
+	TerreroSlideShow.prototype.swipe = function() {
+
+		this.$carousel.css(getTransform.call(this));
+		
+	};
+
+	TerreroSlideShow.prototype.onTransitionEnd = function(evt) {
+		console.log(this.currentPosition, this.slideShowLength, this.viewerWidth);
+		if (this.currentPosition <= - (this.slideShowLength - this.viewerWidth)) {
+			this.currentPosition = 0;
+			this.$el.removeClass('transition');
+			this.swipe();
+		}
+		
+	};
+	
+	TerreroSlideShow.prototype.stop = function() {
+		clearInterval(this.nowPlaying);
+	};
+
+	TerreroSlideShow.prototype.init = function(first_argument) {	
+		this.viewerWidth = this.$el.width();
+		this.slides = this.$el.find('li');
+		this.slideShowLength = this.slides.length * this.viewerWidth;
+
+		this.$carousel.on('transitionend webkitTransitionEnd oTransitionEnd', this.onTransitionEnd.bind(this));
+
+		this.nowPlaying = setInterval(this.nextSlide.bind(this), 3000);
 	};
 
 	var availableSlideShows = {
@@ -113,7 +146,7 @@ $(function(){
 	}
 
 	$('.terrero-slideshow').each(function(idx, el) {
-		availableSlideShows['slide-'+idx] = new TerreroSlideShow($(el).find('.carousel'));
+		availableSlideShows['slide-'+idx] = new TerreroSlideShow($(el));		
 	});
 });
 
