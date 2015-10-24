@@ -64,7 +64,10 @@
 			        <li><a href="http://localhost:8888/terrerohomes/contact-us">Contact us</a></li>
 			        <li><a href="http://localhost:8888/terrerohomes/our-agents">Our Agents</a></li>
 			        <li><a href="http://localhost:8888/terrerohomes/about-us">About Us</a></li>			        
-			        <li class="has-child"><a href="http://localhost:8888/terrerohomes/listings?city=bronx">Listings</a>
+			        <li class="has-child">
+			        	<a 
+			        	
+			        	>Listings</a>
 			          <ul class="dropdown">
 			            <li><a href="http://localhost:8888/terrerohomes/listings?city=bronx">Bronx</a></li>
 			            <li><a href="http://localhost:8888/terrerohomes/listings?city=manhattan">Manhattan</a></li>
@@ -77,7 +80,7 @@
 			  </div>		  
 			</div>
 		</div>
-		
+		<!-- href="http://localhost:8888/terrerohomes/listings?city=bronx" -->
 
 		<!-- <div class="feat-img-cont">
 			<img
