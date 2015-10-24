@@ -290,28 +290,74 @@ input[type="reset"]:active {
 	/* overflow: hidden; */
 }
 .hotel-details-view-container .image-slide-show-container .slide-show {
-  position: relative;
+  overflow: hidden;
 }
-.hotel-details-view-container .image-slide-show-container .slide-show div.carousel {
-  position: absolute;
-  top: 0;
-  left: 0;
-	transition: transform .25s ease;
-	-webkit-transition: transform .25s ease;
-	-moz-transition: transform .25s ease;
-	-o-transition: transform .25s ease;
+.hotel-details-view-container .image-slide-show-container .slide-show.transition div.carousel {  
+	transition: transform .75s ease-out;
+	-webkit-transition: transform .75s ease-out;
+	-moz-transition: transform .75s ease-out;
+	-o-transition: transform .75s ease-out;
+}
+.hotel-details-view-container .image-slide-show-container .slide-show div.carousel ul {
+	height: inherit;
+	white-space: nowrap;
 }
 .hotel-details-view-container .image-slide-show-container .slide-show div.carousel ul li {
   display: inline-block;
   width: 100%;
+  margin: 0px -1px;
 }
 .hotel-details-view-container .image-slide-show-container .slide-show div.carousel ul li:first-child {
-  position: absolute;
-  right: 100%;
+	  /*position: absolute;
+	  right: 100%;*/
 }
 .hotel-details-view-container .image-slide-show-container .slide-show div.carousel ul li img {
 	width: 100%;
 }
+
+.hotel-details-view-container .info-container {
+	padding: 15px;
+	/*margin-top: 30px;
+	margin-bottom: 20px;*/
+}
+
+.hotel-details-view-container .info-container .col {
+	display: inline-block;
+}
+.hotel-details-view-container .info-container .col:first-child {
+	margin-right: 10px;
+}
+.hotel-details-view-container .info-container .col:last-child {
+	margin-right: 0px;
+}
+.hotel-details-view-container .info-container .col.cost .amount {
+	font-size: 1.45em;
+	color: #005826;
+	text-align: right;
+}
+
+.hotel-details-view-container .info-container .prop-title,
+.hotel-details-view-container .info-container .prop-address {
+	font-size: 1.45em;
+	width: 400px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;	
+}
+.hotel-details-view-container .info-container .prop-address {
+	font-size: 0.95em;
+  margin-top: 4px;
+  color: #666666;  
+}
+
+.hotel-details-view-container .info-container .row {
+	margin-top: 10px;
+}
+footer * {
+	color: #fff;
+}
+    
+
 
 .bottom-container {
 	padding: 5em 0;
@@ -418,30 +464,40 @@ html, html a {
 }
 
 .Propertylstview {
-	border-bottom: 4px solid #F88C00;
-	-webkit-box-shadow: 1px 1px 6px rgba(0,0,0,.1);
-	-moz-box-shadow: 1px 1px 6px rgba(0,0,0,.1);
-	box-shadow: 1px 1px 6px rgba(0,0,0,.1);
+	border-bottom: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
 	background-color: #fff;
 	width: 100%;
-	max-width: 685px;
+	/*max-width: 685px;*/
+	border-radius: 0;
 	margin: 0px 0px 20px 0 ;
+}
+.Propertylstview .prlviewbtn {
+	background: navy;
+}
+.Propertylstview .prlinfo, .Propertylstview .prlimage {
+	margin-right: 10px
+}
+.Propertylstview .prlinfo, .Propertylstview .prlimage a {
+display: inline-table;
 }
 .Propertylstview .prlinfo, .Propertylstview .prlimage {
   display: inline-block;
   vertical-align: top;
 }
 .Propertylstview .prlinfo {
-	padding: 0.5em 1em
+	padding: 0;
 }
 .Propertylstview .prlinfo h2.title	{
 	padding: 0;
 }
-.Propertylstview .prlimage a img {
+.Propertylstview .prlimage img {
   margin: 0;
-  vertical-align: top;
-  width: 150px;
-  height: 150px;
+  /*vertical-align: top;*/
+  width: 143px;
+  height: 143px;
 }
 .Propertylstview .prlinfo,
 .Propertylstview .prlinfo ul li {
@@ -545,7 +601,7 @@ a {
 }
 
 .row {
-  width: auto;
+  width: 100%;
   margin: 0 auto;
   max-width: 62.5em;
 }
