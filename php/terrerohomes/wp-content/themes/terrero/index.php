@@ -76,54 +76,7 @@
 	      </div>
       </div>      
     </section>
-
-    <!-- cities -->
-    <!-- <section>
-				<center>
-					<h1>Get Listings by cities</h1>
-				</center>
-				<div class="cities-container">
-					<ul>
-						<li class="city-item">
-							<a href="">
-								<div class="city-content">
-									<div>
-										<img src="/terrerohomes/wp-content/uploads/2015/10/bronx.jpg">
-										<div class="city-name">											
-											Bronx											
-										</div>
-									</div>
-								</div>
-							</a>							
-						</li>
-						<li class="city-item">
-							<a href="">
-								<div class="city-content">
-									<div>
-										<img src="/terrerohomes/wp-content/uploads/2015/10/nyc-manhattan.jpg">
-										<div class="city-name">											
-											Manhattan
-										</div>
-									</div>
-								</div>
-							</a>							
-						</li>
-						<li class="city-item">
-							<a href="">
-								<div class="city-content">
-									<div>
-										<img src="/terrerohomes/wp-content/uploads/2015/10/queens.jpg">
-										<div class="city-name">											
-											Queens											
-										</div>
-									</div>
-								</div>
-							</a>							
-						</li>
-					</ul>
-				</div>
-			</section> -->
-    <!-- cities -->
+    
   </div>
   <!-- #content -->
 </div>
