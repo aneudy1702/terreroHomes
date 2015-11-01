@@ -282,13 +282,31 @@ input[type="reset"]:active {
   width: 640px;
   min-height: 640px;
   border: 1px #000 solid;
-  /*padding: 10px;*/
 }
+
+.featured-item .hotel-details-view-container {	
+  width: 100%;
+  min-height: auto;
+  border: none;  
+}
+
 .hotel-details-view-container .image-slide-show-container {	
 	width: 100%;
 	height: 431px;
 	/* overflow: hidden; */
 }
+
+.featured-item .hotel-details-view-container .image-slide-show-container {
+	width: 640px;
+}
+
+
+.featured-item .hotel-details-view-container .image-slide-show-container,
+.featured-item .hotel-details-view-container .info-container {
+	display: inline-block;
+	vertical-align: top;
+}
+
 .hotel-details-view-container .image-slide-show-container .slide-show {
   overflow: hidden;
 }
@@ -319,6 +337,13 @@ input[type="reset"]:active {
 	padding: 15px;
 	/*margin-top: 30px;
 	margin-bottom: 20px;*/
+}
+
+.featured-item .hotel-details-view-container .info-container {
+	padding: 15px;
+	width: 209px;
+	height: 100%;
+	/*margin-bottom: 20px;*/*/
 }
 
 .hotel-details-view-container .info-container .col {
