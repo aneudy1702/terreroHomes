@@ -11,7 +11,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 body {
 	line-height: 1;
-	background-color: #e6e6e6;
+	background-color: #e6e6e6;	
 }
 ol,
 ul {
@@ -273,9 +273,8 @@ input[type="reset"]:active {
 
 .featured-item {
 	/*padding: 15em 0;*/
-	/*background: #eee;*/
+	background: #eee;
 	/*margin: 1em;*/
-	border: 1px solid #e2e2e2;
 }
 
 .hotel-details-view-container {
@@ -674,6 +673,7 @@ nav ul {
 		padding: 0;
 		position: relative;
 		min-height: 100px;
+		margin-bottom: 20px;
 }
 
 .listings-header {
@@ -1150,7 +1150,7 @@ a:hover {
 /* Page structure */
 .site {	
 	width: 1024px;
-	margin: 0 auto;
+	margin: 0 auto 20px;
 }
 .site-content {
 	/*margin: 24px 0 0;*/
@@ -2176,4 +2176,16 @@ img#wpstats {
 		margin-left: 50px;
 		margin-left: 3.57142857rem;
 	}
+}
+
+body{
+	padding-bottom: 179px;
+	position: relative;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+
 }
