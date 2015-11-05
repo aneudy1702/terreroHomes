@@ -273,8 +273,9 @@ input[type="reset"]:active {
 
 .featured-item {
 	/*padding: 15em 0;*/
-	background: #eee;
+	/*background: #eee;*/
 	/*margin: 1em;*/
+	border: 1px solid #e2e2e2;
 }
 
 .hotel-details-view-container {
@@ -286,7 +287,7 @@ input[type="reset"]:active {
 
 .featured-item .hotel-details-view-container {	
   width: 100%;
-  min-height: auto;
+  min-height: 480px;
   border: none;  
 }
 
@@ -297,7 +298,7 @@ input[type="reset"]:active {
 }
 
 .featured-item .hotel-details-view-container .image-slide-show-container {
-	width: 640px;
+	width: 710px;
 }
 
 
@@ -385,7 +386,7 @@ footer * {
 
 
 .bottom-container {
-	padding: 5em 0;
+	/*padding: 5em 0;*/
 	background: #000;
 	color: #fff;
 	text-align: center;	
@@ -607,7 +608,7 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  background: #fff;
+  background: #fbfbfb;
   font-size: 16px;
   font-family: "Open Sans";
   font-weight: 300;
@@ -740,24 +741,33 @@ nav ul li > a span {
   /*color: #307e5c;*/
 }
 nav ul li:hover {
-  background-color: #F09F47;
+  /*background-color: #F09F47;*/
+  background-color: #000;
 }
 
 .has-child {
   position: relative;
   left: 0;
 }
+
+.has-child:hover .dropdown,
+.has-child .dropdown:hover {
+	display:block;
+}
+.has-child:hover:after {
+	border-color: #fff transparent transparent transparent;
+}
 .has-child:after {
   position: absolute;
   margin-top: -5px;
-  top: 27px;
+  top: 24px;
   right: 5px;
   content: "";
   width: 0px;
   height: 0px;
   border-style: solid;
   border-width: 8px 5px 0 5px;
-  border-color: #F09F47 transparent transparent transparent;
+  border-color: #000 transparent transparent transparent;
 }
 @media only screen and (max-width: 45em) {
   .has-child:after {
@@ -770,7 +780,7 @@ nav ul li:hover {
     height: 0px;
     border-style: solid;
     border-width: 10px 5px 0 5px;
-    border-color: #307e5c transparent transparent transparent;
+    border-color: #000 transparent transparent transparent;
   }
 }
 .has-child .dropdown {
@@ -780,7 +790,7 @@ nav ul li:hover {
   display: none;
   margin-top: 10px;
   width: 200px;
-  background: #fffbf5;
+  background: navy;
   border-radius: 6px;
 }
 @media only screen and (max-width: 45em) {
@@ -804,7 +814,7 @@ nav ul li:hover {
   height: 0px;
   border-style: solid;
   border-width: 0 10px 10px 10px;
-  border-color: transparent transparent white transparent;
+  border-color: transparent transparent navy transparent;
 }
 @media only screen and (max-width: 45em) {
   .has-child .dropdown:after {
@@ -816,7 +826,7 @@ nav ul li:hover {
   width: 100%;
   font-size: 0.875em;
   font-weight: 600;
-  color: #3EA377;
+  color: #fff;
   border-bottom: 1px solid #EFEFEF;
 }
 @media only screen and (max-width: 45em) {
@@ -831,7 +841,7 @@ nav ul li:hover {
   padding: 10px;
 }
 .has-child .dropdown li a:hover {
-  color: #296c4f;
+  color: #fff;
 }
 
 .logo {
@@ -1159,6 +1169,7 @@ a:hover {
 .site-header h1,
 .site-header h2 {
 	text-align: center;
+	color: #444;
 }
 .site-header h1 a,
 .site-header h2 a {
@@ -1168,7 +1179,7 @@ a:hover {
 }
 .site-header h1 a:hover,
 .site-header h2 a:hover {
-	color: #21759b;
+	/*color: #21759b;*/
 }
 .site-header h1 {
 	font-size: 24px;
@@ -1180,9 +1191,9 @@ a:hover {
 .site-header h2 {
 	font-weight: normal;
 	font-size: 13px;
-	font-size: 0.928571429rem;
-	line-height: 1.846153846;
-	color: #757575;
+	font-size: 1.5em;
+	line-height: 2;
+	/*color: #757575;*/
 }
 .header-image {
 	margin-top: 24px;
