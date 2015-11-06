@@ -694,8 +694,11 @@ nav ul {
 .full-size-menu  nav{
 	width:100%;
 	max-width:100%;
+	border: 0;
 	border-radius: 0;
-	margin-top: 0;
+	background: navy;
+	margin: 0;
+
 }
 .full-size-menu  nav .logo {
 	border-radius: 0;
