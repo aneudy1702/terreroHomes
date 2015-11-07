@@ -488,6 +488,12 @@ html, html a {
   color: #444;
 }
 
+.view-details-button {
+	background: navy;
+}
+.view-details-button a {
+	color: #fff;
+}
 .Propertylstview {
 	border-bottom: none;
 	-webkit-box-shadow: none;
@@ -502,6 +508,7 @@ html, html a {
 .Propertylstview .prlviewbtn {
 	background: navy;
 }
+
 .Propertylstview .prlinfo, .Propertylstview .prlimage {
 	margin-right: 10px
 }
@@ -550,6 +557,8 @@ display: inline-table;
 .Propertylstview .prlviewbtn {
 	margin-top: 10px;
 }
+
+
 @media screen and (max-width: 480px) {
 	.site {
 		padding: 0;
@@ -2191,4 +2200,13 @@ footer {
 	bottom: 0;
 	width: 100%;
 
+}
+.listings-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid navy;
+    margin: 0 auto 20px;
+    width: 100%;
+    font-size: 1.5em;
+    text-align: left;
+    color: navy;
 }

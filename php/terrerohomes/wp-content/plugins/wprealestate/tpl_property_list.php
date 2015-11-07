@@ -370,9 +370,10 @@ $args_property = array(
 	's' => $_POST['sbpn']
 );
 
+?>
 
-
-
+<div id="search-results-box" style="min-height: 600px;">
+<?php
 query_posts( $args_property );
 if ( have_posts() ) {
 while ( have_posts() ) : the_post(); 
@@ -382,108 +383,169 @@ $listing_city = get_post_meta(get_the_ID(), 'et_er_city', true);
 if ($city && strcasecmp($city, $listing_city) == 0 || !$city) {
 
 ?>
-
 <!-- LISTING TEMPLATE -->
-<div class="Propertylstview">
-  <div class="prlimage">
-  	<!-- listing images here -->
-		<?php $property_imgs = get_property_images_ids();
-		
-		if ($property_imgs) {?>
+  <div class="search-listing" listing_id="<?php get_the_ID() ?>" onmouseover="" latitude="42.3286" longitude="-71.0637" style="margin-top: 30px; width: 680px;">
+    <table>
+      <tbody>
+        <tr>
 
-		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 
-			<?php echo wp_get_attachment_image($property_imgs['property_image1'], 'medium'); ?>
-			<?php echo wp_get_attachment_image($property_imgs['property_image2'], 'medium'); ?>
-		</a>
+          <!--********* listing images here **********-->
+            <?php $property_imgs = get_property_images_ids();?>
 
-		<?php } else { ?>
+              <?php if ($property_imgs) { ?>
+                <!-- if photos available -->
+                <td style="vertical-align: top;">
+                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                    <div style="background-image: url(<?php echo wp_get_attachment_image_src($property_imgs['property_image1'], 'medium')[0]; ?>); background-size: cover; height: 130px; width: 160px; border: 1px solid navy; border-right: 1px solid #888888;"></div>
+                  </a>
+                </td>
+                <td style="vertical-align: top; position: relative;">
+                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                    <div style="background-image: url(<?php echo wp_get_attachment_image_src($property_imgs['property_image2'], 'medium')[0]; ?>); background-size: cover; height: 130px; width: 160px; border: 1px solid navy; border-left: none;"></div>
+                  </a>
+                </td>
 
-			<img src="<?php echo ET_RE_URL; ?>/images/no_property_image.png"  />
-			<img src="<?php echo ET_RE_URL; ?>/images/no_property_image.png"  />
-		<?php } ?>
-		<!-- listing images here -->
+              <?php } else { ?>
+                <!-- if not photos available -->
+                <td style="vertical-align: top;">
+                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                    <div style="background-image: url(<?php echo ET_RE_URL; ?>/images/no_property_image.png); background-size: cover; height: 130px; width: 160px; border: 1px solid navy; border-right: 1px solid #888888;"></div>
+                  </a>
+                </td>
+                <td style="vertical-align: top; position: relative;">
+                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                    <div style="background-image: url(<?php echo ET_RE_URL; ?>/images/no_property_image.png); background-size: cover; height: 130px; width: 160px; border: 1px solid navy; border-left: none;"></div>
+                  </a>
+                </td>
+
+            <?php } ?>
+          <!--********** listing images here **************-->
+
+          <!--********** here it is where the meta info leaves **********-->
+            <td style="padding-left: 20px; vertical-align: top; width: 360px;">
+              
+              <!-- Listing Title -->
+                <div class="font-size-100 bold" style="padding-bottom: 1px; margin-top: -2px;">
+                  <!-- title anchor -->
+                  <a 
+                    class="listing-title-link"
+                    style=""
+                    href="<?php the_permalink(); ?>"
+                    title="<?php echo the_title(); ?>"
+                  >
+                    <!-- title name -->
+                    <?php echo the_title(); ?>
+                  </a>
+                </div>
+              <!-- Listing Title -->
+
+              <!-- Listing city -->
+                <div class="font-size-80" style="width: 330px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
+                  <?php echo $listing_city; ?>
+                </div>
+              <!-- Listing city -->
+
+              <!-- Listing subsection -->
+                <div style="padding-top: 11px; padding-bottom: 11px;">
+                  <table>
+                    <tbody>
+                      <!-- single row -->
+                        <tr>
+
+                          <!-- Price Col -->
+                          <td style="width: 75px; border-right: 1px solid #eeeeee;">
+                            <div class="bold color-fg-green font-size-100" style="padding-bottom: 0px;">
+                              <?php echo ET_RE_Currency.get_post_meta(get_the_ID(), 'et_er_rent_price', true) ?>
+                            </div>
+                            <div class="font-size-80" style="color: #666666;">
+                              Per Month
+                            </div>
+                          </td>
+                          <!-- Price Col -->
+
+                          <!-- Unknown Col -->
+                          <td style="width: 75px; padding-left: 15px; border-right: 1px solid #eeeeee;">
+                            <div fs="100" qs="93" ms="62" rs="100" class="color-fg-blue bold font-size-100" style="padding-bottom: 0px; position: relative; cursor: pointer;">
+                              optional
+                            </div>
+                            <div class="font-size-80" style="color: #666666;">
+                              Column
+                            </div>
+                          </td>
+                          <!-- Unknown Col -->
+
+                          <!-- Posted Date -->
+                          <td style="padding-left: 15px; vertical-align: bottom;">
+                            <div class="bold font-size-100" style="">
+                              <?php the_time('F jS, Y') ?>
+                              <!-- <span class="font-size-80">mins ago</span> -->
+                            </div>
+                            <div>
+                              <div class="font-size-80" style="color: #666666;">
+                                Posted on
+                              </div>
+                              <!-- More units at
+                              <br><a class="color-fg-blue" href="/boston/building/871-beacon-street-boston-massachusetts-02215">871 Beacon Street</a> -->
+                            </div>
+                          </td>
+                          <!-- Posted Date -->
+                        </tr>
+                      <!-- single row -->
+                    </tbody>
+                  </table>
+                </div>
+              <!-- Listing subsection -->
+
+              <div class="font-size-90 bold view-details-button" style="margin-right: 10px; text-align: center; width: 155px; padding-top: 8px; padding-bottom: 8px; cursor: pointer; margin-top: 2px; display: inline-block;">
+                <a href="<?php the_permalink(); ?>">View Details</a>
+              </div>
+
+            </td>
+          <!--********** here it is where the meta info leaves **********-->
+
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="prlinfo">
-    <!-- TITLE -->
-    <h2 class=title>
-    	<a href="<?php the_permalink(); ?>">
-        3br, 2bth for a great price
-      </a>
-    </h2>
-    <!-- TITLE -->
-
-    <!-- Property Type Rental or Sale -->
-    <h3>
-    	<?php if ($pro_ad_type == 'Rent' ) { ?>
-      	Rent
-      <?php } else {  ?>
-      	Sale
-      <?php } ?>
-    </h3>
-    <!-- Property Type Rental or Sale -->
-
-    <!-- table like short Description -->
-    <ul class="short-desc">
-      <!-- price -->
-      <li>
-        <center>        	
-          <div class=price>
-            <b>
-            	<?php echo ET_RE_Currency.get_post_meta(get_the_ID(), 'et_er_rent_price', true) ?>
-            </b>
-          </div>
-        </center>        
-        <div>Per Month</div>
-      </li>
-      <!-- price -->
-
-      <!-- Bedrooms -->
-      <?php if (get_post_meta(get_the_ID(), 'et_er_bedroom', true) <> '0') { ?>
-	      <li class="">
-	        <center>
-	          <div class=amount>
-	          	<b>
-	          		<?php echo get_post_meta(get_the_ID(), 'et_er_bedroom', true); ?>	          	
-		          </b>
-		        </div>
-	        </center>        
-	        <div class="prlinfobed">	        	
-	        	<?php _e( 'Bedrooms', 'wp-realestate' ); ?>
-	        </div>
-	      </li>
-      <?php }  ?>
-      <!-- Bedrooms -->
-
-      <!-- Baths -->
-      <?php if (get_post_meta(get_the_ID(), 'et_er_bathroom', true) <> '0') { ?>
-	      <li class="">
-	        <center>
-	          <div class=amount>
-	          	<b>
-	          		<?php echo get_post_meta(get_the_ID(), 'et_er_bathroom', true); ?>	          	
-		          </b>
-		        </div>
-	        </center>        
-	        <div class="prlinfobath">	        	
-	        	<?php _e( 'Bathrooms', 'wp-realestate' ); ?>
-	        </div>
-	      </li>
-      <?php }  ?>    
-      <!-- Baths -->
-
-    </ul>    
-    <a href="/terrerohomes/property/?p_id=<?php echo get_the_ID() ?>" class="prlviewbtn">View Details</a> </div>
-  <!-- <br style="clear:both;"> -->
+<!-- LISTING TEMPLATE -->  
+<?php  } endwhile; ?>
 </div>
-<!-- LISTING TEMPLATE -->
 
 
-  <!-- pagination -->
-  <?php 
-  }
-endwhile;
-?>
+<div id="sticky-right" style="position: relative; float: right; width: 300px; top: 0px; left: 0px;">
+  <div id="sticky-map" style="width: 300px; z-index: 2; padding-top: 4px;">
+    <div id="map" style="width: 298px; height: 298px; border: 1px solid rgb(170, 170, 170); position: relative; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);">
+      
+    </div>
+
+    <div style="margin-top: 10px; margin-bottom: -5px;" class="font-size-85">
+      <div style="display: inline-block">
+        <a class="color-fg-blue" style="text-decoration: none;" href="/states"><span class="color-fg-blue">States</span></a> &nbsp;»&nbsp;
+      </div>
+      <div style="display: inline-block" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a itemprop="url" class="color-fg-blue" style="text-decoration: none;" href="/states/massachusetts-apartments"><span class="color-fg-blue" itemprop="title">MA</span></a> &nbsp;»&nbsp;
+      </div>
+      <div style="display: inline-block" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="child">
+        <a itemprop="url" class="color-fg-blue" style="text-decoration: none;" href="/cities/boston-ma"><span class="color-fg-blue" itemprop="title">Boston, MA</span></a>
+      </div>
+    </div>
+
+
+    <div style="margin-top: 35px; border: 1px solid #bbbbbb; padding: 20px 22px 22px 22px;">
+      
+    </div>
+
+    <div style="margin-top: 35px; border: 1px solid #bbbbbb; padding: 20px 22px 22px 22px;" class="font-size-85">
+      
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- pagination -->
 <div style="clear:both"></div>
 <?php
 $big = 999999999; // need an unlikely integer

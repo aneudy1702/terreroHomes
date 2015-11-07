@@ -12,40 +12,6 @@
 	</div><!-- #main .wrapper -->
 	<!-- <footer id="colophon" role="contentinfo">
 
-		<section class="bottom-container">
-
-			<div style="padding-top: 40px; padding-bottom: 40px; margin-left: auto; margin-right: auto; width: 100%;">
-				<table style="width: 100%;">
-					<tbody>
-						<tr>
-							<td class="" style="text-align:center; font-size: 0.88em; width: 241px; vertical-align: top; padding-right: 20px;">
-								<div style="padding-bottom: 12px;"><a style="text-decoration: none; color: #fff;" class="" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">Home</a></div>
-								<div style="padding-bottom: 12px;"><a style="text-decoration: none; color: #fff;" class="" href="/listings">Listings</a></div>
-								<div style="padding-bottom: 12px;"><a style="text-decoration: none; color: #fff;" class="" href="/contactus">Contact us</a></div>
-							</td>
-							<td class="" style="text-align:center; font-size: 0.88em; width: 241px; vertical-align: top; padding-right: 20px;">
-								<div style="padding-bottom: 12px;"><a style="text-decoration: none; color: #fff;" class="" href="#instagramurl">Instagram</a></div>
-								<div style="padding-bottom: 12px;"><a style="text-decoration: none; color: #fff;" class="" href="#facebookurl">Facebook</a></div>
-								<div style="padding-bottom: 12px;"><a style="text-decoration: none; color: #fff;" class="" href="#twitter">Twitter</a></div>
-								<div style="padding-bottom: 12px;"><a style="text-decoration: none; color: #fff;" class="" href="#youremail">Email</a></div>
-							</td>
-							<td class="" style="text-align:center; font-size: 0.88em; width: 241px; vertical-align: top; padding-right: 20px;">
-								<div style="padding-bottom: 12px;"><a style="text-decoration: none; color: #fff;" class="" href="#">Brooklyn Apartments</a></div>
-								<div style="padding-bottom: 12px;"><a style="text-decoration: none; color: #fff;" class="" href="/nyc/kensington-apartments">Bronx Apartments</a></div>
-							</td>
-							<td class="" style="text-align:center; font-size: 0.88em; width: 241px; vertical-align: top;">
-								<div style="padding-bottom: 12px;"><a style="text-decoration: none; color: #fff;" class="" href="#">For Rent Apartments</a></div>
-								<div style="padding-bottom: 12px;"><a style="text-decoration: none; color: #fff;" class="" href="#">For Sale Apartments</a></div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</section>
-
-
-
-
 		
 		<div class="site-info">			
 			<a href="http://aneudyabreu.com" title="aneudybreu.com">Developed by aneudyabreu.com from Web Solutions</a>
@@ -57,12 +23,9 @@
   <div class="" style="border-top: 1px solid #bbbbbb; border-bottom: 1px solid #bbbbbb; background-color: #383838;">
     <div style="margin-left: auto; margin-right: auto; width: 1024px; padding-top: 45px; padding-bottom: 60px; color: #bbbbbb;">
       <div style="float: right;">
-        <div class="font-size-90 bold" style="color: #ffffff; text-align: right;">RentHop.com</div>
-        <div class="font-size-85" style="padding-top: 8px; color: #a0a0a0; text-align: right;">
-          © LM2 Research, Inc.
-        </div>
+        <div class="font-size-90 bold" style="color: #ffffff; text-align: right;">TerreroHomes.com</div>        
         <div class="font-size-85" style="padding-top: 4px; color: #a0a0a0; text-align: right;">
-          Made in New York City
+          Specializing in<br>Residential & Commercial Listings
         </div>
       </div>
       <table style="">
