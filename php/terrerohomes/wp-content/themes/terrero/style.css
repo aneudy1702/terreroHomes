@@ -782,6 +782,15 @@ nav ul li:hover {
   border-color: #000 transparent transparent transparent;
   visibility: hidden;
 }
+
+.no-image {
+	background-size: 100% 100%;
+	height: 130px;
+	width: 160px;
+	/*border: 1px solid navy;*/
+	border-left: none;
+	/*background-color: #ccc;*/
+}
 @media only screen and (max-width: 45em) {
   .has-child:after {
     position: absolute;
