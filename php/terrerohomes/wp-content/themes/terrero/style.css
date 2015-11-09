@@ -767,7 +767,7 @@ nav ul li:hover {
 	display:block;
 }
 .has-child:hover:after {
-	border-color: #fff transparent transparent transparent;
+	/*border-color: #fff transparent transparent transparent;*/
 }
 .has-child:after {
   position: absolute;
@@ -780,6 +780,7 @@ nav ul li:hover {
   border-style: solid;
   border-width: 8px 5px 0 5px;
   border-color: #000 transparent transparent transparent;
+  visibility: hidden;
 }
 @media only screen and (max-width: 45em) {
   .has-child:after {

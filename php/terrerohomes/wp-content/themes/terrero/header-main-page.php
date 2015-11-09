@@ -66,13 +66,13 @@
 		        <li><a href="http://localhost:8888/terrerohomes/contact-us">Contact us</a></li>
 		        <li><a href="http://localhost:8888/terrerohomes/our-agents">Our Agents</a></li>
 		        <li><a href="http://localhost:8888/terrerohomes/about-us">About Us</a></li>			        
-		        <li class="has-child"><a href="http://localhost:8888/terrerohomes/listings?city=bronx">Listings</a>
-		          <ul class="dropdown">
+		        <li class="has-child"><a href="http://localhost:8888/terrerohomes/listings">Listings</a>
+		         <!--  <ul class="dropdown">
 		            <li><a href="http://localhost:8888/terrerohomes/listings?city=bronx">Bronx</a></li>
 		            <li><a href="http://localhost:8888/terrerohomes/listings?city=manhattan">Manhattan</a></li>
 		            <li><a href="http://localhost:8888/terrerohomes/listings?city=queens">Queens</a></li>
 		            <li><a href="http://localhost:8888/terrerohomes/listings?city=brooklyn">Brooklyn</a></li>
-		          </ul>
+		          </ul> -->
 		        </li>
 		        <li>
 	        		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">Home</a>
