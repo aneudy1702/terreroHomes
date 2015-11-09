@@ -379,8 +379,8 @@ if ( have_posts() ) {
 while ( have_posts() ) : the_post(); 
 $pro_ad_type = get_post_meta(get_the_ID(), 'et_er_adtype', true);
 $listing_city = get_post_meta(get_the_ID(), 'et_er_city', true);
-
-if ($city && strcasecmp($city, $listing_city) == 0 || !$city) {
+$detailURL = '/terrerohomes/property/?p_id='. get_the_ID();
+// if ($city && strcasecmp($city, $listing_city) == 0 || !$city) {
 
 ?>
 <!-- LISTING TEMPLATE -->
@@ -396,12 +396,12 @@ if ($city && strcasecmp($city, $listing_city) == 0 || !$city) {
               <?php if ($property_imgs) { ?>
                 <!-- if photos available -->
                 <td style="vertical-align: top;">
-                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                  <a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
                     <div style="background-image: url(<?php echo wp_get_attachment_image_src($property_imgs['property_image1'], 'medium')[0]; ?>); background-size: cover; height: 130px; width: 160px; border: 1px solid navy; border-right: 1px solid #888888;"></div>
                   </a>
                 </td>
                 <td style="vertical-align: top; position: relative;">
-                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                  <a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
                     <div style="background-image: url(<?php echo wp_get_attachment_image_src($property_imgs['property_image2'], 'medium')[0]; ?>); background-size: cover; height: 130px; width: 160px; border: 1px solid navy; border-left: none;"></div>
                   </a>
                 </td>
@@ -409,13 +409,13 @@ if ($city && strcasecmp($city, $listing_city) == 0 || !$city) {
               <?php } else { ?>
                 <!-- if not photos available -->
                 <td style="vertical-align: top;">
-                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                    <div style="background-image: url(<?php echo ET_RE_URL; ?>/images/no_property_image.png); background-size: cover; height: 130px; width: 160px; border: 1px solid navy; border-right: 1px solid #888888;"></div>
+                  <a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
+                    <div class="no-image" style="background-image: url(<?php echo ET_RE_URL; ?>/images/no_property_image.png);"></div>
                   </a>
                 </td>
                 <td style="vertical-align: top; position: relative;">
-                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                    <div style="background-image: url(<?php echo ET_RE_URL; ?>/images/no_property_image.png); background-size: cover; height: 130px; width: 160px; border: 1px solid navy; border-left: none;"></div>
+                  <a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
+                    <div class="no-image" style="background-image: url(<?php echo ET_RE_URL; ?>/images/no_property_image.png);"></div>
                   </a>
                 </td>
 
@@ -431,7 +431,7 @@ if ($city && strcasecmp($city, $listing_city) == 0 || !$city) {
                   <a 
                     class="listing-title-link"
                     style=""
-                    href="<?php the_permalink(); ?>"
+                    href="<?php echo $detailURL ?>"
                     title="<?php echo the_title(); ?>"
                   >
                     <!-- title name -->
@@ -498,7 +498,7 @@ if ($city && strcasecmp($city, $listing_city) == 0 || !$city) {
               <!-- Listing subsection -->
 
               <div class="font-size-90 bold view-details-button" style="margin-right: 10px; text-align: center; width: 155px; padding-top: 8px; padding-bottom: 8px; cursor: pointer; margin-top: 2px; display: inline-block;">
-                <a href="<?php the_permalink(); ?>">View Details</a>
+                <a href="<?php echo $detailURL ?>">View Details</a>
               </div>
 
             </td>
