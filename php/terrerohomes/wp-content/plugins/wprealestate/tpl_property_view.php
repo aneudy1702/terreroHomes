@@ -5,6 +5,7 @@ $p_detail_sidebar = get_option('p_detail_sidebar');
 
 global $post;
 the_post();
+
 if ($_POST) {
 
 $get_property_user = get_userdata($post->post_author);
@@ -90,7 +91,7 @@ jQuery(window).load(function() {
 //     slideshow: false,
 //     sync: "#carousel"
 //   });
-// });
+});
 </script>
 
 <!-- new detail page. terrero homes -->
@@ -141,13 +142,18 @@ jQuery(window).load(function() {
 	                <!-- listing address -->
 	                <div>
 	                  <?php 
+
+	                  	$address = '';
+
 											if (get_post_meta($post->ID, 'et_er_address', true)) {
-												echo get_post_meta($post->ID, 'et_er_address', true).', '; 
+												$address .= get_post_meta($post->ID, 'et_er_address', true).', '; 
 											}
 											if (get_post_meta($post->ID, 'et_er_area_location', true)) {
-												echo get_post_meta($post->ID, 'et_er_area_location', true).', ';
+												$address .= get_post_meta($post->ID, 'et_er_area_location', true).', ';
 											}
-											echo get_post_meta($post->ID, 'et_er_city', true).' '.get_post_meta($post->ID, 'et_er_zipcode', true); 
+											$address .= get_post_meta($post->ID, 'et_er_city', true).' '.get_post_meta($post->ID, 'et_er_zipcode', true); 
+
+											echo $address;									
 										?>
 	                </div>
 	                <!-- listing address -->
@@ -201,21 +207,117 @@ jQuery(window).load(function() {
 
   <!-- description section -->
   <div style="width: 642px; margin-bottom: 35px; padding-bottom: 35px; border-bottom: 1px solid #f2f2f2;">
-	  <div id="description" style="margin-bottom: 20px; font-weight: bold; font-size: 1.10em;">
-	    Description
-	  </div>
-	  <div style="font-size: 0.90em; line-height: 140%;">
-	    <br> &nbsp; &nbsp; &nbsp; &nbsp;Call or Text Jordan at 917-336-0374 to view this apartment today!
-	    <br>
-	    <br>Not what you're looking for? GREAT!! Email me your needs! I have access to every listing in the market including the rare home you'll NEVER find advertised online!
-	    <br>
-	    <br>Find out how 80% of my clients find a home within the first day searching using my personal approach. Don't waste time seeing apartments that make you cringe!
-	    <br>
-	  </div>
+	  <div id="ProDescription">
+			<div class="heading">
+				<?php _e( 'Description', 'wp-realestate' ); ?>
+			</div>
+			<?php the_content(); ?>
+		</div>
 	</div>
 	<!-- description section -->
 
+	<!-- features and amenities  section -->
+	<section>
+		<?php 
+		  
+		  $terms = get_the_terms( $post->ID, 'facility' );
+			
+			if ( $terms && ! is_wp_error( $terms ) ) {
+		?>
+			<div style="width: 642px; margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px solid #f2f2f2;">
+			  <div class="bold" style="padding-bottom: 20px; font-size: 1.10em;">
+			    <?php _e( 'Facilities', 'wp-realestate' ); ?>
+			  </div>
+
+			  <div class="" style="width: 640px;">
+			  	<!-- facilities iteration -->
+			    <?php 
+						foreach ($terms as $term) { 
+					?>
+					<!-- facility template -->
+						<div style="width: 210px; display: inline-block; padding-bottom: 12px; vertical-align: top;">
+				      <table>
+				        <tbody>
+				          <tr>
+				            <td style="vertical-align: top;">
+				              <img src="/terrerohomes/wp-content/themes/terrero/images/feature-check.png">
+				            </td>
+				            <td style="vertical-align: top; padding-left: 8px;" class="font-size-90">
+				              <?php echo $term->name ?>
+				            </td>
+				          </tr>
+				        </tbody>
+				      </table>
+				    </div>
+					<?php
+						}
+					?>					
+			  </div>
+			</div>
+			<!-- end of if ( $terms && ! is_wp_error( $terms ) ) { -->
+		<?php } ?>
+	</section>
+	<!-- features and amenities  section -->
 	
+
+	<!-- map section -->
+	<section>
+		<div style="margin-bottom: 25px; font-weight: bold; font-size: 1.10em;">
+			On the Map
+		</div>
+		<div id="map_canvas" style="width:640px; height:500px"></div>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
+		<script type="text/javascript">
+		  var geocoder;
+		  var map;
+		  var address ='<?php echo $address ?>';
+		  function initialize() {
+		    geocoder = new google.maps.Geocoder();
+		    var latlng = new google.maps.LatLng(-34.397, 150.644);
+		    var myOptions = {
+		      zoom: 17,
+		      center: latlng,
+		    	mapTypeControl: true,
+		    	// mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+		    	navigationControl: true,
+		      mapTypeId: google.maps.MapTypeId.ROADMAP
+		    };
+		    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+		    if (geocoder) {
+		      geocoder.geocode( { 'address': address}, function(results, status) {
+		        if (status == google.maps.GeocoderStatus.OK) {
+		          if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+		          map.setCenter(results[0].geometry.location);
+
+		            var infowindow = new google.maps.InfoWindow(
+		                { content: '<b>'+address+'</b>',
+		                  size: new google.maps.Size(150,50)
+		                });
+
+		            var marker = new google.maps.Marker({
+		                position: results[0].geometry.location,
+		                map: map, 
+		                title:address
+		            }); 
+		            google.maps.event.addListener(marker, 'click', function() {
+		                infowindow.open(map,marker);
+		            });
+
+		          } else {
+		            alert("No results found");
+		          }
+		        } else {
+		          alert("Geocode was not successful for the following reason: " + status);
+		        }
+		      });
+		    }
+		  }
+		  jQuery(initialize);
+		</script>
+		
+	</section>
+	<!-- map section -->
+
 </div>
 
 
@@ -236,23 +338,10 @@ jQuery(window).load(function() {
 
 
 <div id="content" class="site-content" role="main">
-<div id="PropertyMainDiv" <?php if ($p_detail_sidebar == 1) { ?> style="width:612px;" <?php } ?>>
-<div class="SpacerDiv"></div>
-<h1><?php the_title(); ?></h1>
-<div class="SpacerDiv"></div>
-<h3 class="address">
-<?php 
-if (get_post_meta($post->ID, 'et_er_address', true)) {
-	echo get_post_meta($post->ID, 'et_er_address', true).', '; 
-}
-if (get_post_meta($post->ID, 'et_er_area_location', true)) {
-	echo get_post_meta($post->ID, 'et_er_area_location', true).', ';
-}
-
-	echo get_post_meta($post->ID, 'et_er_city', true).' '.get_post_meta($post->ID, 'et_er_zipcode', true); ?></h3>
 <div class="SpacerDiv"></div>
 <?php $property_imgs = get_property_images_ids();
-if ($property_imgs == true) { ?>
+ 
+if ($property_imgs) { ?>
 <div class="ProPhotos">
 <!-- Place somewhere in the <body> of your page -->
 <div id="slider" class="flexslider">
