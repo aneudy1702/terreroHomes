@@ -172,7 +172,7 @@ $(function(){
 	};
 
 	TerreroSlideShow.prototype.onTransitionEnd = function(evt) {
-		console.log(this.currentPosition, this.slideShowLength, this.viewerWidth);
+		// console.log(this.currentPosition, this.slideShowLength, this.viewerWidth);
 		if (this.currentPosition <= - (this.slideShowLength - this.viewerWidth)) {
 			this.currentPosition = 0;
 			this.$el.removeClass('transition');
