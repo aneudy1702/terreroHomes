@@ -3,38 +3,41 @@ get_header();
 
 $p_detail_sidebar = get_option('p_detail_sidebar');
 
-global $post;
-the_post();
+// global $post;
 
-if ($_POST) {
 
-$get_property_user = get_userdata($post->post_author);
-if (get_option('et_re_sent_copy_email') == '') {
-	$et_re_sent_copy_email = get_option('admin_email');
-} else {	
-	$et_re_sent_copy_email = get_option('et_re_sent_copy_email');
-}
+$post = get_post($_GET['p_id']);
+// the_post();
 
-if (file_exists( ET_RE_PATH . 'pro/pro_tpl_property_view.php')) { include ET_RE_PATH . 'pro/pro_tpl_property_view.php'; }
+// if ($_POST) {
 
-	$inq_msg = __( 'An inquiry received from your site', 'wp-realestate' ). ' '.bloginfo('name').'<br /><br />';
-	$inq_msg .= __( 'Property URL', 'wp-realestate' ).': '.get_permalink($post->ID).'<br />';
-	$inq_msg .= __( 'Name', 'wp-realestate' ).': '.$_REQUEST['inq_name'].'<br />';
-	$inq_msg .= __( 'Email', 'wp-realestate' ).': '.$_REQUEST['inq_email'].'<br />';
-	$inq_msg .= __( 'Phone', 'wp-realestate' ).': '.$_REQUEST['inq_phone'].'<br />';
-	$inq_msg .= __( 'Message', 'wp-realestate' ).': '.$_REQUEST['inq_message'].'<br />';
-	$inq_msg .= __( 'User IP', 'wp-realestate' ).': '.$_SERVER['REMOTE_ADDR'].'<br />';
+// $get_property_user = get_userdata($post->post_author);
+// if (get_option('et_re_sent_copy_email') == '') {
+// 	$et_re_sent_copy_email = get_option('admin_email');
+// } else {	
+// 	$et_re_sent_copy_email = get_option('et_re_sent_copy_email');
+// }
+
+// if (file_exists( ET_RE_PATH . 'pro/pro_tpl_property_view.php')) { include ET_RE_PATH . 'pro/pro_tpl_property_view.php'; }
+
+// 	$inq_msg = __( 'An inquiry received from your site', 'wp-realestate' ). ' '.bloginfo('name').'<br /><br />';
+// 	$inq_msg .= __( 'Property URL', 'wp-realestate' ).': '.get_permalink($post->ID).'<br />';
+// 	$inq_msg .= __( 'Name', 'wp-realestate' ).': '.$_REQUEST['inq_name'].'<br />';
+// 	$inq_msg .= __( 'Email', 'wp-realestate' ).': '.$_REQUEST['inq_email'].'<br />';
+// 	$inq_msg .= __( 'Phone', 'wp-realestate' ).': '.$_REQUEST['inq_phone'].'<br />';
+// 	$inq_msg .= __( 'Message', 'wp-realestate' ).': '.$_REQUEST['inq_message'].'<br />';
+// 	$inq_msg .= __( 'User IP', 'wp-realestate' ).': '.$_SERVER['REMOTE_ADDR'].'<br />';
 	
-	sendmail($_REQUEST['inq_name'], $et_re_sent_copy_email, $_REQUEST['inq_email'], __( 'Message from', 'wp-realestate' ).' '.bloginfo('name'),$inq_msg);
+// 	sendmail($_REQUEST['inq_name'], $et_re_sent_copy_email, $_REQUEST['inq_email'], __( 'Message from', 'wp-realestate' ).' '.bloginfo('name'),$inq_msg);
 	
-	global $wp_rewrite;
-	if ($wp_rewrite->permalink_structure == ''){
-		wp_redirect( get_permalink($post->ID).'&msg=1');
-	} else {
-		wp_redirect( get_permalink($post->ID).'?msg=1');
-	}
-	exit;
-}
+// 	global $wp_rewrite;
+// 	if ($wp_rewrite->permalink_structure == ''){
+// 		wp_redirect( get_permalink($post->ID).'&msg=1');
+// 	} else {
+// 		wp_redirect( get_permalink($post->ID).'?msg=1');
+// 	}
+// 	exit;
+// }
 ?>
 <script type="text/javascript">var switchTo5x=true;</script>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
