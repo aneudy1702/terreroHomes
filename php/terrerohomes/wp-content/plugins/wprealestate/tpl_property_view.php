@@ -72,26 +72,120 @@ jQuery(window).load(function() {
 		return true;
 	});
 	
-  // The slider being synced must be initialized first
-  jQuery('#carousel').flexslider({
-    animation: "slide",
-    controlNav: false,
-    animationLoop: false,
-    slideshow: false,
-    itemWidth: 155,
-    itemMargin: 5,
-    asNavFor: '#slider'
-  });
+//   // The slider being synced must be initialized first
+//   jQuery('#carousel').flexslider({
+//     animation: "slide",
+//     controlNav: false,
+//     animationLoop: false,
+//     slideshow: false,
+//     itemWidth: 155,
+//     itemMargin: 5,
+//     asNavFor: '#slider'
+//   });
    
-  jQuery('#slider').flexslider({
-    animation: "slide",
-    controlNav: false,
-    animationLoop: false,
-    slideshow: false,
-    sync: "#carousel"
-  });
-});
+//   jQuery('#slider').flexslider({
+//     animation: "slide",
+//     controlNav: false,
+//     animationLoop: false,
+//     slideshow: false,
+//     sync: "#carousel"
+//   });
+// });
 </script>
+
+<!-- new detail page. terrero homes -->
+
+<div id="content" class="site-content" role="main">
+
+  <section class="slideshow">
+    <!-- slide show -->
+    <div class="hotel-details-view-container">
+      <div class="image-slide-show-container">
+        <div class="slide-show terrero-slideshow">
+          <div class="carousel">
+            <ul>
+              <li>
+                <img src="http://photos.renthop.com/2/6062434_249b2a352e9fe9227c07701671a2d1ac.jpg"
+                alt="" />
+              </li>
+              <li>
+                <img src="http://photos.renthop.com/2/6062434_249b2a352e9fe9227c07701671a2d1ac.jpg"
+                alt="" />
+              </li>
+              <li>
+                <img src="http://photos.renthop.com/2/6062434_249b2a352e9fe9227c07701671a2d1ac.jpg"
+                alt="" />
+              </li>
+              <li>
+                <img src="http://photos.renthop.com/2/6062434_249b2a352e9fe9227c07701671a2d1ac.jpg"
+                alt="" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- slide info -->
+      <div class="info-container">
+        <table style="width: 100%;">
+          <tbody>
+            <tr>
+              <td>
+                <div style="font-size: 1.45em; width: 400px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
+                  1BR at Washington Street
+                </div>
+                <div style="font-size: 0.95em; margin-top: 4px; color: #666666; width: 400px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
+                  West Village, Downtown Manhattan, Manhattan
+                </div>
+              </td>
+              <td>
+                <div style="font-size: 1.45em; color: #005826; text-align: right;">
+                  $4,365
+                </div>
+                <div style="font-size: 0.95em; margin-top: 4px; color: #666666; text-align: right;">
+                  Per Month
+                </div>
+              </td>
+              <td style="width: 20px;">
+              </td>
+              <td style="padding-left: 20px; border-left: 1px solid #eeeeee;">
+                <div class="font-size-90 bold view-details-button" style="
+	              		margin-right: 10px;
+	              		text-align: center;
+	              		width: 155px;
+	              		padding-top: 8px;
+	              		padding-bottom: 8px;
+	              		cursor: pointer;
+	              		margin-top: 2px;
+	              		display: inline-block;">
+                  <a href="/terrerohomes/property/?p_id=44">View Details</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="content" class="site-content" role="main">
 <div id="PropertyMainDiv" <?php if ($p_detail_sidebar == 1) { ?> style="width:612px;" <?php } ?>>
 <div class="SpacerDiv"></div>
