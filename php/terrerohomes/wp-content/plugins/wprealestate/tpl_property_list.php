@@ -362,7 +362,7 @@ $p_pro_id_display = get_option('p_pro_id_display');
 	
 // THIS MEANS IT IS COMING FROM A GET REQUEST OR JUST HITTING THE URL
 
-$city = isset($_GET['city']) ? $_GET['city'] : null;
+// $city = isset($_GET['city']) ? $_GET['city'] : null;
 $args_property = array(
 	'post_type'=> 'property',
 	'posts_per_page' => $et_re_pp_listing,
@@ -509,7 +509,11 @@ if ($city && strcasecmp($city, $listing_city) == 0 || !$city) {
     </table>
   </div>
 <!-- LISTING TEMPLATE -->  
-<?php  } endwhile; ?>
+<?php  
+//}
+
+endwhile;
+?>
 </div>
 
 
