@@ -306,6 +306,7 @@ div#content {
   min-height: 640px;
   border: 1px #000 solid;
 }
+
 .listing-detail .hotel-details-view-container .slide-show-address-box div {
 	font-size: 1.45em;
 	width: 360px;
@@ -321,6 +322,7 @@ div#content {
 
 .listing-detail .hotel-details-view-container {
 	min-height: auto;
+	border: none;
 }
 .featured-item .hotel-details-view-container {	
   width: 100%;
@@ -2262,4 +2264,19 @@ footer {
     font-size: 1.5em;
     text-align: left;
     color: navy;
+}
+#ProDescription, .ProDescription {
+	background: #fff;
+    margin: 12px 2px;
+    border-radius: 3px;
+     zoom: normal; 
+    -webkit-box-shadow: none; 
+    -moz-box-shadow: none;
+    box-shadow: none; 
+    background-color: #fff;
+    margin-bottom: 30px;
+    padding: 20px;
+    position: relative;
+    width: 94%;
+     border: none; 
 }
