@@ -306,7 +306,22 @@ div#content {
   min-height: 640px;
   border: 1px #000 solid;
 }
+.listing-detail .hotel-details-view-container .slide-show-address-box div {
+	font-size: 1.45em;
+	width: 360px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;	
+}
+.listing-detail .hotel-details-view-container .slide-show-address-box div:last-child {
+	font-size: 0.95em;
+	margin-top: 4px;
+	color: #666666;	
+}
 
+.listing-detail .hotel-details-view-container {
+	min-height: auto;
+}
 .featured-item .hotel-details-view-container {	
   width: 100%;
   min-height: 480px;

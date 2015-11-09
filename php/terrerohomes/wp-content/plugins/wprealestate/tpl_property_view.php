@@ -95,9 +95,9 @@ jQuery(window).load(function() {
 
 <!-- new detail page. terrero homes -->
 
-<div id="content" class="site-content" role="main">
-
-  <section class="slideshow">
+<div id="content" class="site-content listing-detail" role="main">
+	<!-- slide show and quick details section -->
+  <section class="">
     <!-- slide show -->
     <div class="hotel-details-view-container">
       <div class="image-slide-show-container">
@@ -131,20 +131,50 @@ jQuery(window).load(function() {
           <tbody>
             <tr>
               <td>
-                <div style="font-size: 1.45em; width: 400px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
-                  1BR at Washington Street
-                </div>
-                <div style="font-size: 0.95em; margin-top: 4px; color: #666666; width: 400px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
-                  West Village, Downtown Manhattan, Manhattan
-                </div>
+              	<div class="slide-show-address-box">
+              		<!-- post title -->
+              		<div>
+	                  <?php the_title(); ?>
+	                </div>
+	                <!-- post title -->
+
+	                <!-- listing address -->
+	                <div>
+	                  <?php 
+											if (get_post_meta($post->ID, 'et_er_address', true)) {
+												echo get_post_meta($post->ID, 'et_er_address', true).', '; 
+											}
+											if (get_post_meta($post->ID, 'et_er_area_location', true)) {
+												echo get_post_meta($post->ID, 'et_er_area_location', true).', ';
+											}
+											echo get_post_meta($post->ID, 'et_er_city', true).' '.get_post_meta($post->ID, 'et_er_zipcode', true); 
+										?>
+	                </div>
+	                <!-- listing address -->
+
+              	</div>
+                
               </td>
               <td>
-                <div style="font-size: 1.45em; color: #005826; text-align: right;">
-                  $4,365
-                </div>
-                <div style="font-size: 0.95em; margin-top: 4px; color: #666666; text-align: right;">
-                  Per Month
-                </div>
+
+              	<!-- RENT -->
+              	<?php if (get_post_meta($post->ID, 'et_er_rent_price', true) <> 0) { ?>
+              		
+              		<!-- rent price -->
+	                <div style="font-size: 1.45em; color: #005826; text-align: right;">
+	                  <?php echo ET_RE_Currency.get_post_meta($post->ID, 'et_er_rent_price', true); ?>
+	                </div>
+	                <!-- rent price -->
+	                
+	                <!-- rent tenure -->
+	                <div style="font-size: 0.95em; margin-top: 4px; color: #666666; text-align: right;">
+	                  <?php echo get_post_meta($post->ID, 'et_er_rent_tenure', true); ?>
+	                </div>
+	                <!-- rent price -->
+
+                <?php } ?>
+                <!-- RENT -->
+
               </td>
               <td style="width: 20px;">
               </td>
@@ -158,7 +188,7 @@ jQuery(window).load(function() {
 	              		cursor: pointer;
 	              		margin-top: 2px;
 	              		display: inline-block;">
-                  <a href="/terrerohomes/property/?p_id=44">View Details</a>
+                  <a href="#availabilityForm">Check Availability</a>
                 </div>
               </td>
             </tr>
@@ -167,6 +197,25 @@ jQuery(window).load(function() {
       </div>
     </div>
   </section>
+  <!-- slide show and quick details section -->
+
+  <!-- description section -->
+  <div style="width: 642px; margin-bottom: 35px; padding-bottom: 35px; border-bottom: 1px solid #f2f2f2;">
+	  <div id="description" style="margin-bottom: 20px; font-weight: bold; font-size: 1.10em;">
+	    Description
+	  </div>
+	  <div style="font-size: 0.90em; line-height: 140%;">
+	    <br> &nbsp; &nbsp; &nbsp; &nbsp;Call or Text Jordan at 917-336-0374 to view this apartment today!
+	    <br>
+	    <br>Not what you're looking for? GREAT!! Email me your needs! I have access to every listing in the market including the rare home you'll NEVER find advertised online!
+	    <br>
+	    <br>Find out how 80% of my clients find a home within the first day searching using my personal approach. Don't waste time seeing apartments that make you cringe!
+	    <br>
+	  </div>
+	</div>
+	<!-- description section -->
+
+	
 </div>
 
 
