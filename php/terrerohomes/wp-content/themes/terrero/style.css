@@ -273,8 +273,18 @@ input[type="reset"]:active {
 
 .featured-item {
 	/*padding: 15em 0;*/
-	background: #eee;
-	/*margin: 1em;*/
+	/*background: #eee;*/
+	width: 710px;
+	margin: 0 auto;
+	position: relative;
+}
+.featured-item td {
+	vertical-align: middle;
+}
+
+div#content {
+	background: #fff;
+	padding-top: 20px;
 }
 
 .hotel-details-view-container {
