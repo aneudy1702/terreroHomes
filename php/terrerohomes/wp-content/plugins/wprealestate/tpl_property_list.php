@@ -517,7 +517,7 @@ endwhile;
 </div>
 
 
-<div id="sticky-right" style="position: relative; float: right; width: 300px; top: 0px; left: 0px;">
+<div id="sticky-right" style="">
   <div id="sticky-map" style="width: 300px; z-index: 2; padding-top: 4px;">
     <div id="map" style="width: 298px; height: 298px; border: 1px solid rgb(170, 170, 170); position: relative; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);">
       

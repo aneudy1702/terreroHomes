@@ -1166,8 +1166,13 @@ a:hover {
 	margin: 0 auto 20px;
 }
 .site-content {
-	/*margin: 24px 0 0;*/
-	/*margin: 1.714285714rem 0 0;*/
+	position: relative;
+}
+#sticky-right {
+	position: absolute;
+	width: 300px;
+	top: 4.2em;
+	right: 0;
 }
 .widget-area {
 	margin: 24px 0 0;
