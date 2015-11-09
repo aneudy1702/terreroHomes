@@ -278,7 +278,11 @@ jQuery(window).load(function() {
 		      zoom: 17,
 		      center: latlng,
 		    	mapTypeControl: true,
-		    	// mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+					scrollwheel: false,
+			    navigationControl: false,
+			    mapTypeControl: false,
+			    scaleControl: false,
+			    draggable: false,
 		    	navigationControl: true,
 		      mapTypeId: google.maps.MapTypeId.ROADMAP
 		    };
@@ -441,11 +445,7 @@ if ( $terms && ! is_wp_error( $terms ) ) {
 <div class="SpacerDiv"></div>
 
 </div>
-<div class="SpacerDiv"></div>
-<div class="SpacerDiv"></div>
-<div id="ProDescription">
-<div class="heading"><?php _e( 'Description', 'wp-realestate' ); ?></div>
-<?php the_content(); ?></div>
+
 <div class="SpacerDiv"></div>
 <div class="SpacerDiv"></div>
 
