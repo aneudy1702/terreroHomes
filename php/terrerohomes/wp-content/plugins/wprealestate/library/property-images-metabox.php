@@ -515,18 +515,18 @@ function get_property_images_ids($thumbnail = false, $id = false){
 
 
 
-	$list_images = list_property_images( get_post_type( $id ) );
+	$list_images = list_property_images( get_post_type( $the_id ) );
 
 
 
 	$a = array();
-if ($list_images) {
-	foreach ($list_images as $key => $img) {
+	if ($list_images) {
+		foreach ($list_images as $key => $img) {
 
-		if($i = get_post_meta($the_id,$img,true))
+			if($i = get_post_meta($the_id,$img,true))
 
-			$a[$key] = $i;
-	}
+				$a[$key] = $i;
+		}
 	}
 
 	if($thumbnail){
