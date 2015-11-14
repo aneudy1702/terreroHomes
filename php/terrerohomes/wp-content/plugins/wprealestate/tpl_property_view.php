@@ -102,42 +102,18 @@ jQuery(window).load(function() {
 <div id="content" class="site-content listing-detail" role="main">
 	<!-- slide show and quick details section -->
   <section class="">
-    <!-- slide show -->
+  	
     <div class="hotel-details-view-container">
-      <div class="image-slide-show-container">
-        <div class="slide-show terrero-slideshow">
-          <div class="carousel">
-            <ul>
-              <li>
-                <img src="http://photos.renthop.com/2/6062434_249b2a352e9fe9227c07701671a2d1ac.jpg"
-                alt="" />
-              </li>
-              <li>
-                <img src="http://photos.renthop.com/2/6062434_249b2a352e9fe9227c07701671a2d1ac.jpg"
-                alt="" />
-              </li>
-              <li>
-                <img src="http://photos.renthop.com/2/6062434_249b2a352e9fe9227c07701671a2d1ac.jpg"
-                alt="" />
-              </li>
-              <li>
-                <img src="http://photos.renthop.com/2/6062434_249b2a352e9fe9227c07701671a2d1ac.jpg"
-                alt="" />
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
 
-      <!-- slide info -->
-      <div class="info-container">
-        <table style="width: 100%;">
-          <tbody>
-            <tr>
-              <td>
-              	<div class="slide-show-address-box">
-              		<!-- post title -->
-              		<div>
+    	<!-- slide info -->
+	    <div class="info-container">
+	      <table style="width: 100%;">
+	        <tbody>
+	          <tr>
+	            <td>
+	            	<div class="slide-show-address-box">
+	            		<!-- post title -->
+	            		<div>
 	                  <?php the_title(); ?>
 	                </div>
 	                <!-- post title -->
@@ -161,15 +137,15 @@ jQuery(window).load(function() {
 	                </div>
 	                <!-- listing address -->
 
-              	</div>
-                
-              </td>
-              <td>
+	            	</div>
+	              
+	            </td>
+	            <td>
 
-              	<!-- RENT -->
-              	<?php if (get_post_meta($post->ID, 'et_er_rent_price', true) <> 0) { ?>
-              		
-              		<!-- rent price -->
+	            	<!-- RENT -->
+	            	<?php if (get_post_meta($post->ID, 'et_er_rent_price', true) <> 0) { ?>
+	            		
+	            		<!-- rent price -->
 	                <div style="font-size: 1.45em; color: #005826; text-align: right;">
 	                  <?php echo ET_RE_Currency.get_post_meta($post->ID, 'et_er_rent_price', true); ?>
 	                </div>
@@ -181,14 +157,14 @@ jQuery(window).load(function() {
 	                </div>
 	                <!-- rent price -->
 
-                <?php } ?>
-                <!-- RENT -->
+	              <?php } ?>
+	              <!-- RENT -->
 
-              </td>
-              <td style="width: 20px;">
-              </td>
-              <td style="padding-left: 20px; border-left: 1px solid #eeeeee;">
-                <div class="font-size-90 bold view-details-button" style="
+	            </td>
+	            <td style="width: 20px;">
+	            </td>
+	            <td style="padding-left: 20px; border-left: 1px solid #eeeeee;">
+	              <div class="font-size-90 bold view-details-button" style="
 	              		margin-right: 10px;
 	              		text-align: center;
 	              		width: 155px;
@@ -197,13 +173,53 @@ jQuery(window).load(function() {
 	              		cursor: pointer;
 	              		margin-top: 2px;
 	              		display: inline-block;">
-                  <a href="#availabilityForm">Check Availability</a>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+	                <a href="#availabilityForm">Check Availability</a>
+	              </div>
+	            </td>
+	          </tr>
+	        </tbody>
+	      </table>
+	    </div>
+	    <!-- slide info -->
+
+
+    	<!-- slide show -->
+      <div class="image-slide-show-container">
+        <div class="slide-show terrero-slideshow">
+          <div class="carousel">
+            <ul>
+
+        			<?php 
+
+  						$property_imgs = get_property_images_ids(false, $post->ID);
+
+							if ($property_imgs) { 
+    						
+    						foreach ($property_imgs as $img_id) {
+							?>
+  							
+  							<li>
+	                <img
+	                src="<?php echo wp_get_attachment_image_src($img_id, 'full')[0]; ?>"
+	                alt=""
+                	/>
+	              </li>
+        				
+      	
+    					<?php 
+
+    						}
+    					}
+
+    					?>              
+            </ul>
+          </div>
+        </div>
       </div>
+      <!-- slide show -->   
+
+
+
     </div>
   </section>
   <!-- slide show and quick details section -->
@@ -213,64 +229,7 @@ jQuery(window).load(function() {
 
 <!-- Details section -->
 <section>
-	<div id="content" class="site-content" role="main">
-  	<div class="SpacerDiv"></div>
-  	
-
-  	<?php $property_imgs = get_property_images_ids(false, $post->ID);
- 
-		if ($property_imgs) { ?>
-    	<div class="ProPhotos">
-      	<!-- Place somewhere in the <body> of your page -->
-      	<div id="slider" class="flexslider">
-        	<ul class="slides">
-          	<?php foreach ($property_imgs as $img_id) { ?>
-            	<li>
-              	<?php echo wp_get_attachment_image($img_id, 'full'); ?>
-            	</li>
-          	<?php } ?>
-            <!-- items mirrored twice, total of 12 -->
-        	</ul>
-      	</div>
-
-
-      	<?php
-
-      	$property_arr_size = count($property_imgs);
-
-				if ($property_arr_size > 1) {
-
-				?>
-        
-	        <div id="carousel" class="flexslider">
-	          <ul class="slides">
-	            <?php 
-
-	            foreach ($property_imgs as $img_id) {
-
-	          	?>
-	              <li>
-	                <?php
-
-	                	echo wp_get_attachment_image($img_id);
-
-	              	?>
-	              </li>
-	              
-	            <?php
-
-	      			}
-
-	    				?>
-
-	          <!-- items mirrored twice, total of 12 -->
-	          </ul>
-	        </div>
-       	<?php } ?>
-    	</div>
-    <?php } ?>
-		
-
+	<div id="content" class="site-content" role="main">  	
 
 		<?php  if (get_option('p_share_buttons') == 1) {?>
 
@@ -420,7 +379,7 @@ jQuery(window).load(function() {
 	          <?php echo get_post_meta($post->ID, 'et_er_date_vacant', true).'<br />'; ?>
 	        </div>
         <?php } ?>
-								
+				
   		</div>
       
 
