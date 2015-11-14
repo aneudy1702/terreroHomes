@@ -302,7 +302,8 @@ div#content {
 
 .hotel-details-view-container {
   box-sizing: border-box;
-  width: 640px;
+  width: 720px;
+  margin: 0 auto;
   min-height: 640px;
   border: 1px #000 solid;
 }
