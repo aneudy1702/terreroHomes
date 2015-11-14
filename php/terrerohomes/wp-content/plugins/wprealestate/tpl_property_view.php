@@ -420,17 +420,7 @@ jQuery(window).load(function() {
 	          <?php echo get_post_meta($post->ID, 'et_er_date_vacant', true).'<br />'; ?>
 	        </div>
         <?php } ?>
-				
-				<?php
-					$terms = get_the_terms( $post->ID, 'facility' );
-					if ( $terms && ! is_wp_error( $terms ) ) {
-				?>
-          <div class="SpecLabel">
-            <?php _e( 'Facilities', 'wp-realestate' ); ?>: </div>
-          <div class="SpecInfo">
-            <?php the_terms( $post->ID, 'facility', '', ', ', ' ' ).'<br />'; ?>
-          </div>
-        <?php } ?>
+								
   		</div>
       
 
