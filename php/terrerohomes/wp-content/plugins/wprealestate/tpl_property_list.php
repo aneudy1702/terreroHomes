@@ -372,148 +372,184 @@ $args_property = array(
 
 ?>
 
+<?php 
+	
+	$posts = get_posts($args_property);
+	
+	
+
+	class PostsByCity {
+		public $postByCities = array();	
+		
+		function sortPost($post){
+			$listingCity = strtolower(get_post_meta($post->ID, 'et_er_city', true));
+			// check if the city already exists		
+			
+			if (!$this->postByCities[$listingCity]) {
+				
+				$this->postByCities[$listingCity] = array();
+			}
+
+			array_push($this->postByCities[$listingCity], $post);
+		}
+	}
+	
+	$postSorter = new PostsByCity();
+
+	foreach ($posts as $post) {
+		$postSorter->sortPost($post);
+	}
+
+	// print_r(['brooklyn']);
+	
+?>
+
 <div id="search-results-box" style="min-height: 600px;">
 <?php
-query_posts( $args_property );
-if ( have_posts() ) {
-while ( have_posts() ) : the_post(); 
-$pro_ad_type = get_post_meta(get_the_ID(), 'et_er_adtype', true);
-$listing_city = get_post_meta(get_the_ID(), 'et_er_city', true);
-$detailURL = '/terrerohomes/property/?p_id='. get_the_ID();
-// if ($city && strcasecmp($city, $listing_city) == 0 || !$city) {
+if (count($postSorter->postByCities) > 0) {
+foreach ($postSorter->postByCities as $city => $posts) {
+	// print_r();
+	echo "<h1>".$city."</h1>";
+	// echo count($posts);
+	// echo "<div>******************</div>";
+	foreach ($posts as $post) {
+		setup_postdata( $post );
 
+		$pro_ad_type = get_post_meta(get_the_ID(), 'et_er_adtype', true);
+		$listing_city = get_post_meta(get_the_ID(), 'et_er_city', true);
+		$detailURL = '/terrerohomes/property/?p_id='. get_the_ID();
 ?>
-<!-- LISTING TEMPLATE -->
-  <div class="search-listing" listing_id="<?php get_the_ID() ?>" onmouseover="" latitude="42.3286" longitude="-71.0637" style="margin-top: 30px; width: 680px;">
-    <table>
-      <tbody>
-        <tr>
+
+		<!-- LISTING TEMPLATE -->
+		  <div class="search-listing" listing_id="<?php get_the_ID() ?>" onmouseover="" latitude="42.3286" longitude="-71.0637" style="margin-top: 30px; width: 680px;">
+		    <table>
+		      <tbody>
+		        <tr>
 
 
-          <!--********* listing images here **********-->
-            <?php $property_imgs = get_property_images_ids();?>
+		          <!--********* listing images here **********-->
+		            <?php $property_imgs = get_property_images_ids();?>
 
-              <?php if ($property_imgs) { ?>
-                <!-- if photos available -->
-                <td style="vertical-align: top;">
-                  <a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
-                    <div style="background-image: url(<?php echo wp_get_attachment_image_src($property_imgs['property_image1'], 'medium')[0]; ?>); background-size: cover; height: 130px; width: 160px; border: 1px solid navy; border-right: 1px solid #888888;"></div>
-                  </a>
-                </td>
-                <td style="vertical-align: top; position: relative;">
-                  <a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
-                    <div style="background-image: url(<?php echo wp_get_attachment_image_src($property_imgs['property_image2'], 'medium')[0]; ?>); background-size: cover; height: 130px; width: 160px; border: 1px solid navy; border-left: none;"></div>
-                  </a>
-                </td>
+		              <?php if ($property_imgs) { ?>
+		                <!-- if photos available -->
+		                <td style="vertical-align: top;">
+		                  <a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
+		                    <div style="background-image: url(<?php echo wp_get_attachment_image_src($property_imgs['property_image1'], 'medium')[0]; ?>); background-size: cover; height: 130px; width: 160px; border: 1px solid navy; border-right: 1px solid #888888;"></div>
+		                  </a>
+		                </td>
+		                <td style="vertical-align: top; position: relative;">
+		                  <a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
+		                    <div style="background-image: url(<?php echo wp_get_attachment_image_src($property_imgs['property_image2'], 'medium')[0]; ?>); background-size: cover; height: 130px; width: 160px; border: 1px solid navy; border-left: none;"></div>
+		                  </a>
+		                </td>
 
-              <?php } else { ?>
-                <!-- if not photos available -->
-                <td style="vertical-align: top;">
-                  <a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
-                    <div class="no-image" style="background-image: url(<?php echo ET_RE_URL; ?>/images/no_property_image.png);"></div>
-                  </a>
-                </td>
-                <td style="vertical-align: top; position: relative;">
-                  <a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
-                    <div class="no-image" style="background-image: url(<?php echo ET_RE_URL; ?>/images/no_property_image.png);"></div>
-                  </a>
-                </td>
+		              <?php } else { ?>
+		                <!-- if not photos available -->
+		                <td style="vertical-align: top;">
+		                  <a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
+		                    <div class="no-image" style="background-image: url(<?php echo ET_RE_URL; ?>/images/no_property_image.png);"></div>
+		                  </a>
+		                </td>
+		                <td style="vertical-align: top; position: relative;">
+		                  <a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
+		                    <div class="no-image" style="background-image: url(<?php echo ET_RE_URL; ?>/images/no_property_image.png);"></div>
+		                  </a>
+		                </td>
 
-            <?php } ?>
-          <!--********** listing images here **************-->
+		            <?php } ?>
+		          <!--********** listing images here **************-->
 
-          <!--********** here it is where the meta info leaves **********-->
-            <td style="padding-left: 20px; vertical-align: top; width: 360px;">
-              
-              <!-- Listing Title -->
-                <div class="font-size-100 bold" style="padding-bottom: 1px; margin-top: -2px;">
-                  <!-- title anchor -->
-                  <a 
-                    class="listing-title-link"
-                    style=""
-                    href="<?php echo $detailURL ?>"
-                    title="<?php echo the_title(); ?>"
-                  >
-                    <!-- title name -->
-                    <?php echo the_title(); ?>
-                  </a>
-                </div>
-              <!-- Listing Title -->
+		          <!--********** here it is where the meta info leaves **********-->
+		            <td style="padding-left: 20px; vertical-align: top; width: 360px;">
+		              
+		              <!-- Listing Title -->
+		                <div class="font-size-100 bold" style="padding-bottom: 1px; margin-top: -2px;">
+		                  <!-- title anchor -->
+		                  <a 
+		                    class="listing-title-link"
+		                    style=""
+		                    href="<?php echo $detailURL ?>"
+		                    title="<?php echo the_title(); ?>"
+		                  >
+		                    <!-- title name -->
+		                    <?php echo the_title(); ?>
+		                  </a>
+		                </div>
+		              <!-- Listing Title -->
 
-              <!-- Listing city -->
-                <div class="font-size-80" style="width: 330px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
-                  <?php echo $listing_city; ?>
-                </div>
-              <!-- Listing city -->
+		              <!-- Listing city -->
+		                <div class="font-size-80" style="width: 330px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
+		                  <?php echo $listing_city; ?>
+		                </div>
+		              <!-- Listing city -->
 
-              <!-- Listing subsection -->
-                <div style="padding-top: 11px; padding-bottom: 11px;">
-                  <table>
-                    <tbody>
-                      <!-- single row -->
-                        <tr>
+		              <!-- Listing subsection -->
+		                <div style="padding-top: 11px; padding-bottom: 11px;">
+		                  <table>
+		                    <tbody>
+		                      <!-- single row -->
+		                        <tr>
 
-                          <!-- Price Col -->
-                          <td style="width: 75px; border-right: 1px solid #eeeeee;">
-                            <div class="bold color-fg-green font-size-100" style="padding-bottom: 0px;">
-                              <?php echo ET_RE_Currency.get_post_meta(get_the_ID(), 'et_er_rent_price', true) ?>
-                            </div>
-                            <div class="font-size-80" style="color: #666666;">
-                              Per Month
-                            </div>
-                          </td>
-                          <!-- Price Col -->
+		                          <!-- Price Col -->
+		                          <td style="width: 75px; border-right: 1px solid #eeeeee;">
+		                            <div class="bold color-fg-green font-size-100" style="padding-bottom: 0px;">
+		                              <?php echo ET_RE_Currency.get_post_meta(get_the_ID(), 'et_er_rent_price', true) ?>
+		                            </div>
+		                            <div class="font-size-80" style="color: #666666;">
+		                              Per Month
+		                            </div>
+		                          </td>
+		                          <!-- Price Col -->
 
-                          <!-- Unknown Col -->
-                          <td style="width: 75px; padding-left: 15px; border-right: 1px solid #eeeeee;">
-                            <div fs="100" qs="93" ms="62" rs="100" class="color-fg-blue bold font-size-100" style="padding-bottom: 0px; position: relative; cursor: pointer;">
-                              optional
-                            </div>
-                            <div class="font-size-80" style="color: #666666;">
-                              Column
-                            </div>
-                          </td>
-                          <!-- Unknown Col -->
+		                          <!-- Unknown Col -->
+		                          <td style="width: 75px; padding-left: 15px; border-right: 1px solid #eeeeee;">
+		                            <div fs="100" qs="93" ms="62" rs="100" class="color-fg-blue bold font-size-100" style="padding-bottom: 0px; position: relative; cursor: pointer;">
+		                              optional
+		                            </div>
+		                            <div class="font-size-80" style="color: #666666;">
+		                              Column
+		                            </div>
+		                          </td>
+		                          <!-- Unknown Col -->
 
-                          <!-- Posted Date -->
-                          <td style="padding-left: 15px; vertical-align: bottom;">
-                            <div class="bold font-size-100" style="">
-                              <?php the_time('F jS, Y') ?>
-                              <!-- <span class="font-size-80">mins ago</span> -->
-                            </div>
-                            <div>
-                              <div class="font-size-80" style="color: #666666;">
-                                Posted on
-                              </div>
-                              <!-- More units at
-                              <br><a class="color-fg-blue" href="/boston/building/871-beacon-street-boston-massachusetts-02215">871 Beacon Street</a> -->
-                            </div>
-                          </td>
-                          <!-- Posted Date -->
-                        </tr>
-                      <!-- single row -->
-                    </tbody>
-                  </table>
-                </div>
-              <!-- Listing subsection -->
+		                          <!-- Posted Date -->
+		                          <td style="padding-left: 15px; vertical-align: bottom;">
+		                            <div class="bold font-size-100" style="">
+		                              <?php the_time('F jS, Y') ?>
+		                              <!-- <span class="font-size-80">mins ago</span> -->
+		                            </div>
+		                            <div>
+		                              <div class="font-size-80" style="color: #666666;">
+		                                Posted on
+		                              </div>
+		                              <!-- More units at
+		                              <br><a class="color-fg-blue" href="/boston/building/871-beacon-street-boston-massachusetts-02215">871 Beacon Street</a> -->
+		                            </div>
+		                          </td>
+		                          <!-- Posted Date -->
+		                        </tr>
+		                      <!-- single row -->
+		                    </tbody>
+		                  </table>
+		                </div>
+		              <!-- Listing subsection -->
 
-              <div class="font-size-90 bold view-details-button" style="margin-right: 10px; text-align: center; width: 155px; padding-top: 8px; padding-bottom: 8px; cursor: pointer; margin-top: 2px; display: inline-block;">
-                <a href="<?php echo $detailURL ?>">View Details</a>
-              </div>
+		              <div class="font-size-90 bold view-details-button" style="margin-right: 10px; text-align: center; width: 155px; padding-top: 8px; padding-bottom: 8px; cursor: pointer; margin-top: 2px; display: inline-block;">
+		                <a href="<?php echo $detailURL ?>">View Details</a>
+		              </div>
 
-            </td>
-          <!--********** here it is where the meta info leaves **********-->
+		            </td>
+		          <!--********** here it is where the meta info leaves **********-->
 
-        </tr>
-      </tbody>
-    </table>
-  </div>
-<!-- LISTING TEMPLATE -->  
-<?php  
-//}
+		        </tr>
+		      </tbody>
+		    </table>
+		  </div>
+		<!-- LISTING TEMPLATE -->
 
-endwhile;
-?>
+	<?php } ?>
+<?php } ?>
+
 </div>
 
 
