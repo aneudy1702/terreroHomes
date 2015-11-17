@@ -409,7 +409,7 @@ $args_property = array(
 if (count($postSorter->postByCities) > 0) {
 foreach ($postSorter->postByCities as $city => $posts) {
 	// print_r();
-	echo "<h1>".$city."</h1>";
+	echo "<h2>".$city."</h2>";
 	// echo count($posts);
 	// echo "<div>******************</div>";
 	foreach ($posts as $post) {
@@ -548,6 +548,9 @@ foreach ($postSorter->postByCities as $city => $posts) {
 		<!-- LISTING TEMPLATE -->
 
 	<?php } ?>
+	<div class="SpacerDiv"></div>
+	<div class="SpacerDiv"></div>
+	<div class="SpacerDiv"></div>
 <?php } ?>
 
 </div>
