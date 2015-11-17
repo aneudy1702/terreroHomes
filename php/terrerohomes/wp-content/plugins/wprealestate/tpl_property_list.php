@@ -406,7 +406,7 @@ $args_property = array(
 
 <div id="search-results-box" style="min-height: 600px;">
 <?php
-if (count($postSorter->postByCities) > 0) {
+if ( count($postSorter->postByCities) > 0 ) {
 foreach ($postSorter->postByCities as $city => $posts) {
 	// print_r();
 	echo "<h2>".$city."</h2>";
