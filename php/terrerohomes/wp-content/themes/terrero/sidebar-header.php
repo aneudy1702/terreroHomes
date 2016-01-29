@@ -25,3 +25,26 @@
   <!-- template navigation here -->
 
 </header>
+
+<?php 
+  
+  function Listing {
+
+    function Listing($listingData = (object)array()) {
+      $this->data = $listingData;
+    }
+
+    public function getTitle(){
+      // something here
+    }
+
+  }
+
+
+  function getTerreoListings($featured = false, $popular = false){
+    // - TODO: find the way to get the featured post
+    // - TODO: find the way to get the popular listings
+    // - TODO: find post in general
+  }
+
+?>
