@@ -307,6 +307,7 @@ input[type="reset"]:active {
 .mini-listing-list .mini-listing .mini-description {
 	padding-left: 20px;
 	width: 360px;
+	vertical-align: middle;
 }
 .mini-listing-list .mini-listing .mini-description .title {
 	font-weight: bold;
@@ -316,8 +317,8 @@ input[type="reset"]:active {
 .mini-listing-list .mini-listing .listing-img {
 	background-image: url('http://photos.renthop.com/6/6433125_4b267eecab749ef5a4bc7647bde13c8d.jpg');
 	background-size: cover;
-	height: 130px;
-	width: 160px;
+	height: 100px;
+	width: 130px;
 	border: 1px solid #23a0ff;
 	border-right: 1px solid #888888;	
 }
