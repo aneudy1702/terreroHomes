@@ -2477,6 +2477,7 @@ footer {
 	position: absolute;
 	bottom: 0;
 	width: 1024px;
+	margin: 0 auto;
 
 }
 .listings-header {
