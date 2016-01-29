@@ -14,7 +14,11 @@
 <!-- TODO: create dynamic list of mini lisitings -->
 
 <div class="mini-listing-list">
-	
+	<header class="listing-title">
+		<span>
+			Popular Listings
+		</span>
+	</header>
 	<!-- repeat this item bellow -->
 	<div class="mini-listing">
 		<table>
