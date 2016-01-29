@@ -28,7 +28,7 @@
 
 <?php 
   
-  function Listing {
+  class Listing {
 
     function Listing($listingData = (object)array()) {
       $this->data = $listingData;
