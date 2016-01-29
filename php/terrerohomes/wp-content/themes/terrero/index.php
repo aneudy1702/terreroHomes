@@ -14,7 +14,7 @@
           </td>
             
           <td class="col sidebar">
-            <?php get_sidebar(); ?>
+            <?php get_sidebar('mini-listings'); ?>
           </td>
 
         </tr>
