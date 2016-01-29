@@ -889,15 +889,8 @@ h1 {
 
 nav {
   position: relative;
-  margin: 20px auto 0;
-  padding: 0;
-  max-width: 62.5em;
-  min-width: 20em;
-  background: rgb(0, 0, 128);
-  line-height: 3.125em;
-  overflow: visible;
-  border: 1px solid white;
-  border-radius: 6px;
+	background: navy;
+	line-height: 3.125em;	
 }
 /*@media only screen and (max-width: 62.5em) {
   nav {
@@ -1453,6 +1446,7 @@ a:hover {
 .site-header .dark-section {
 	background-image: url(http://alumni.virginia.edu/new-york/wp-content/uploads/sites/29/2016/01/new-york-city-commercial-skyline1.jpg);
 	background-position: 0% 30%;
+	border: 0;
 
 }
 
