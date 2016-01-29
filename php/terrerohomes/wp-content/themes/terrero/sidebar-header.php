@@ -27,24 +27,21 @@
 </header>
 
 <?php 
-  
-  class Listing {
 
-    function Listing($listingData = (object)array()) {
-      $this->data = $listingData;
+  function getTerreoListings($featured = false, $popular = false, $amount){
+    $args_property = array(
+      'post_type'=> 'property',
+      
+      // 'paged' => get_query_var('paged'),
+      // 's' => $_POST['sbpn']
+    );
+
+    if ($amount) {
+      $args_property['posts_per_page'] = $amount;
     }
+    
 
-    public function getTitle(){
-      // something here
-    }
-
-  }
-
-
-  function getTerreoListings($featured = false, $popular = false){
-    // - TODO: find the way to get the featured post
-    // - TODO: find the way to get the popular listings
-    // - TODO: find post in general
+    return get_posts($args_property);
   }
 
 ?>
