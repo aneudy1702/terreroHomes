@@ -20,15 +20,21 @@
 </div><!-- #page -->
 
 <footer>
-  <div class="" style="border-top: 1px solid #bbbbbb; border-bottom: 1px solid #bbbbbb; background-color: #383838;">
-    <div style="margin-left: auto; margin-right: auto; width: 1024px; padding-top: 45px; padding-bottom: 60px; color: #bbbbbb;">
-      <div style="float: right;">
-        <div class="font-size-90 bold" style="color: #ffffff; text-align: right;">TerreroHomes.com</div>        
-        <div class="font-size-85" style="padding-top: 4px; color: #a0a0a0; text-align: right;">
-          Specializing in<br>Residential & Commercial Listings
+  <div class="dark-section">
+    <div class="inner-container">
+
+
+      <div class="f_right">
+        <div
+        	class="font-size-90 bold">TerreroHomes.com</div>
+        <div class="font-size-85" style="">
+          Specializing in
+          <br>Residential & Commercial Listings
         </div>
       </div>
-      <table style="">
+
+
+      <table>
         <tbody>
           <tr>
             <td style="vertical-align: top;">
@@ -89,7 +95,8 @@
               </div>
               <div style="color: #ffffff;" class="font-size-85">
                 <div style="padding-top: 0px;">
-                  <a style="text-decoration: none; color: #dddddd;" href="https://plus.google.com/+RentHop" rel="publisher">Google+</a>
+                  <a style="text-decoration: none; color: #dddddd;" href="https://plus.google.com/+RentHop"
+                  rel="publisher">Google+</a>
                 </div>
               </div>
             </td>
@@ -100,6 +107,7 @@
     </div>
   </div>
 </footer>
+
 
 
 <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->

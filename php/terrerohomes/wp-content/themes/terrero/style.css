@@ -423,6 +423,32 @@ footer * {
 	color: #fff;
 }
     
+/*darkSection*/
+.dark-section {
+	border-top: 1px solid #bbbbbb;
+	border-bottom: 1px solid #bbbbbb;
+	background-color: #383838;
+	color: #bbbbbb;
+}
+
+footer .dark-section .inner-container {
+	margin: 0 auto;
+	width: 1024px;
+	padding: 45px 20px 60px
+}
+
+footer .dark-section .inner-container .f_right {
+	float: right;
+}
+footer .dark-section .inner-container .f_right > div {
+	color: #ffffff;
+	text-align: right;
+}
+footer .dark-section .inner-container .f_right > div:last-child {
+	padding-top: 4px;
+	color: #a0a0a0;
+}
+
 
 
 .bottom-container {
@@ -466,7 +492,8 @@ div.meteor-slides {
     border-right: none;
     padding: 30px 0;
     position:relative;
-    /* border-bottom: none; */
+    /* border-bottom: none;
+    */
 }
 
 .main-navigation .nav-menu li {
