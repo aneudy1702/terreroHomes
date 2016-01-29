@@ -2469,12 +2469,12 @@ img#wpstats {
 }
 
 body{
-	padding-bottom: 179px;
+	/*padding-bottom: 179px;*/
 	position: relative;
 }
 
 footer {
-	position: absolute;
+	/*position: absolute;*/
 	bottom: 0;
 	width: 1024px;
 	margin: 0 auto;
