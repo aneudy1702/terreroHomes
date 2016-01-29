@@ -39,7 +39,10 @@
     if ($amount) {
       $args_property['posts_per_page'] = $amount;
     }
-    
+
+    if ($featured) {
+      $args_property['posts_per_page'] = 1;
+    }  
 
     return get_posts($args_property);
   }
