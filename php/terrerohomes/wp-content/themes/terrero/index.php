@@ -9,11 +9,11 @@
       <tbody>
         <tr>
 
-          <td class="col">
+          <td class="col">            
             <?php get_featured_item(); ?>
           </td>
             
-          <td class="top">
+          <td class="col sidebar">
             <?php get_sidebar(); ?>
           </td>
 

@@ -272,11 +272,10 @@ input[type="reset"]:active {
 */
 
 .featured-item {
-	/*padding: 15em 0;*/
-	/*background: #eee;*/
-	width: 710px;
-	/*margin: 0 auto;*/
 	position: relative;
+	width: 650px;	
+	
+	
 }
 .featured-item:after {
 	content: "";
@@ -326,9 +325,17 @@ input[type="reset"]:active {
 
 
 
-div#content {
+#content {
 	background: #fff;
 	padding: 20px;
+}
+
+#content .page-layout-holder .col {
+	vertical-align: top;
+}
+
+#content .page-layout-holder .col.sidebar {
+	padding-left: 25px;
 }
 
 .hotel-details-view-container {
@@ -369,7 +376,7 @@ div#content {
 }
 
 .featured-item .hotel-details-view-container .image-slide-show-container {
-	width: 710px;
+	width: 100%;
 }
 
 
