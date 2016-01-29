@@ -10,7 +10,7 @@
         <tr>
 
           <td class="col">            
-            <?php get_featured_item(); ?>
+            <?php get_sidebar('featured-item'); ?>
           </td>
             
           <td class="col sidebar">
