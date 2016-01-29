@@ -28,7 +28,7 @@
 
 <?php 
 
-  function getTerreoListings($featured = false, $popular = false, $amount){
+  function getTerreoListings($featured = false, $popular = false, $amount = null){
     $args_property = array(
       'post_type'=> 'property',
       
@@ -45,6 +45,16 @@
     }  
 
     return get_posts($args_property);
+  }
+
+  $defaultUrl =  ET_RE_URL . '/images/no_property_image.png';
+
+  function getIMGUrl($imgId) {
+    return wp_get_attachment_image_src($imgId, 'large')[0] || $defaultUrl;
+  }
+
+  function getMetaData($prop){
+    return get_post_meta(get_the_ID(), $prop, true);
   }
 
 ?>

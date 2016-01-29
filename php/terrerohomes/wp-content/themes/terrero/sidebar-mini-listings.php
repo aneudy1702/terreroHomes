@@ -43,7 +43,7 @@
 			?>
 
 			
-			<a href="<?php echo $detailURL; ?>" alt="<?php the_title(); ?>">
+			<a id="" href="<?php echo $detailURL; ?>" alt="<?php the_title(); ?>">
 				<div class="mini-listing">
 					<table>
 				    <tbody>
@@ -69,7 +69,7 @@
 
 		<!-- for each end -->
 		<?php } ?>
-
+		<?php wp_reset_query(); ?>
 	</div>
 	
 	
