@@ -275,7 +275,7 @@ input[type="reset"]:active {
 	/*padding: 15em 0;*/
 	/*background: #eee;*/
 	width: 710px;
-	margin: 0 auto;
+	/*margin: 0 auto;*/
 	position: relative;
 }
 .featured-item:after {
