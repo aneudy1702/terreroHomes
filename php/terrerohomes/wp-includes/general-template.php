@@ -126,6 +126,33 @@ function get_sidebar( $name = null ) {
 		load_template( ABSPATH . WPINC . '/theme-compat/sidebar.php');
 }
 
+function get_featured_item( $name = null ) {
+	/**
+	 * Fires before the beature template file is loaded.
+	 *
+	 * The hook allows a specific sidebar template file to be used in place of the
+	 * default sidebar template file. If your file is called sidebar-new.php,
+	 * you would specify the filename in the hook as get_sidebar( 'new' ).
+	 *
+	 * @since 2.2.0
+	 * @since 2.8.0 $name parameter added.
+	 *
+	 * @param string $name Name of the specific sidebar file to use.
+	 */
+	do_action( 'get_featured_item', $name );
+
+	$templates = array();
+	$name = (string) $name;
+	if ( '' !== $name )
+		$templates[] = "feature-item-{$name}.php";
+
+	$templates[] = 'feature-item.php';
+
+	// Backward compat code will be removed in a future release
+	if ('' == locate_template($templates, true))
+		load_template( ABSPATH . WPINC . '/theme-compat/feature-item.php');
+}
+
 /**
  * Load a template part into a template
  *
