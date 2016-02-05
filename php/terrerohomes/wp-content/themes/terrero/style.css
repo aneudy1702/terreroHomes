@@ -338,7 +338,8 @@ input[type="reset"]:active {
 
 .mini-listing-list .mini-listing {
   cursor: pointer;
-  background-color: #fbfbfb;
+  background-color: #fbfbfb; /*RGBA fallback*/
+  background-color: rgba(251,251,251,.7);
   border: 1px solid #e2e2e2;
   margin-bottom: 10px;
 }
@@ -360,7 +361,7 @@ input[type="reset"]:active {
 }
 
 .mini-listing-list .mini-listing .listing-img {
-  background-image: url('http://photos.renthop.com/6/6433125_4b267eecab749ef5a4bc7647bde13c8d.jpg');
+  background-image: url('images/no-image.jpg');
   background-size: cover;
   height: 100px;
   width: 130px;
@@ -394,6 +395,14 @@ input[type="reset"]:active {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
+.image-slide-show-container .carousel-img {
+ 	height: 431px;
+ 	background: #eee;
+ 	background-repeat: no-repeat;
+ 	background-size: cover;
+}
+
 
 .listing-detail .hotel-details-view-container .slide-show-address-box div:last-child {
   font-size: 0.95em;
@@ -1444,7 +1453,7 @@ a:hover {
 }
 
 .site-header .dark-section {
-	background-image: url(http://alumni.virginia.edu/new-york/wp-content/uploads/sites/29/2016/01/new-york-city-commercial-skyline1.jpg);
+	background-image: url(images/skyline.jpg);
 	background-position: 0% 30%;
 	border: 0;
 

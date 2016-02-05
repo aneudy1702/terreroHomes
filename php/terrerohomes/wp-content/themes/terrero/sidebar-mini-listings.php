@@ -33,13 +33,17 @@
 				// $pro_ad_type = get_post_meta(get_the_ID(), 'et_er_adtype', true);
 				// $listing_city = get_post_meta(get_the_ID(), 'et_er_city', true);
 				$detailURL = '/terrerohomes/property/?p_id='. get_the_ID();		
-				$imgURl =  ET_RE_URL . '/images/no_property_image.png';
+				$imgURl = null;
 				$property_imgs_ids = get_property_images_ids();
-
-				if ($property_imgs_ids) {
-					$imgURl = wp_get_attachment_image_src($property_imgs_ids['property_image1'], 'medium')[0];
-				}
+				$miniListingClass = 'listing-img ';
+				$imgStyle = '';
 				
+				if ($property_imgs_ids) {
+
+					$imgURl = wp_get_attachment_image_src($property_imgs_ids['property_image1'], 'medium')[0];
+					$imgStyle = 'background-image:url(' . $imgURl . ')';
+					
+				}
 			?>
 
 			
@@ -51,7 +55,7 @@
 
 				      	<!-- img -->
 				        <td class="mini-col">			          
-				          <div class="listing-img" style="background-image:url(<?php echo $imgURl; ?>)"></div>
+				          <div class="<?php echo $miniListingClass; ?>" style="<?php echo $imgStyle ?>"></div>
 				        </td>
 
 				        <!-- mini description -->

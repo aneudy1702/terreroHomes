@@ -30,7 +30,7 @@
 
   function getTerreoListings($featured = false, $popular = false, $amount = null){
     $args_property = array(
-      'post_type'=> 'property',
+      'post_type'=> 'property'
       
       // 'paged' => get_query_var('paged'),
       // 's' => $_POST['sbpn']
@@ -45,12 +45,23 @@
     }  
 
     return get_posts($args_property);
+
+  }
+
+  class ImageObj {
+    function ImageObj($data) {
+      $this->data = $data;
+    }
+
+    public function getData() {
+      return $this->data;
+    }
   }
 
   $defaultUrl =  ET_RE_URL . '/images/no_property_image.png';
 
   function getIMGUrl($imgId) {
-    return wp_get_attachment_image_src($imgId, 'large')[0] || $defaultUrl;
+    return wp_get_attachment_image_src($imgId, 'medium')[0];
   }
 
   function getMetaData($prop){
