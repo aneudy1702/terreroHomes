@@ -51,7 +51,12 @@ function property_custom_box( $post ) {
 	
 </div>
 <div class="AdmfrmFld">
-<input name="et_er_property_featured" type="checkbox" id="et_er_property_featured" checked="<?php echo $et_er_property_featured; ?>" />
+	<?php if ($et_er_property_featured) { ?>
+		<input name="et_er_property_featured" type="checkbox" id="et_er_property_featured" checked="<?php echo $et_er_property_featured; ?>" />
+	<?php } else {?>
+		<input name="et_er_property_featured" type="checkbox" id="et_er_property_featured"/>
+	<?php } ?>
+
 </div>
 
 
