@@ -46,20 +46,19 @@ function property_custom_box( $post ) {
 <div> 
 <h2><?php _e( 'Location Details', 'wp-realestate' ); ?></h2>
 
-
-
 <div class="AdmfrmLabel">
   <label for="et_er_property_featured"><?php _e( 'Featured?', 'wp-realestate' ); ?></label>
+	
 </div>
 <div class="AdmfrmFld">
-<input name="et_er_property_featured" type="checkbox" id="et_er_property_featured" value="<?php echo $et_er_property_featured; ?>" size="14" />
+<input name="et_er_property_featured" type="checkbox" id="et_er_property_featured" checked="<?php echo $et_er_property_featured; ?>" />
 </div>
 
 
 <br style="clear:both;" />
 
 <div class="AdmfrmLabel">
-  	<label for="et_er_property_name"><?php _e( 'Property Name', 'wp-realestate' ); ?></label>
+  	<label for="et_er_property_name"><?php _e( 'Property Name', 'wp-realestate' ); ?></label>  	
 </div>
 <div class="AdmfrmFld">
 	<input name="et_er_property_name" type="text" id="et_er_property_name" value="<?php echo $et_er_property_name; ?>" size="14" />
@@ -277,13 +276,16 @@ function SavePropertyInfo($postID){
 	{
 	$postID = $parent_id;
 	}	
+
+
 		if ($_POST['et_er_property_name']) {
 		update_custom_meta($postID, addslashes($_POST['et_er_property_name']), 'et_er_property_name');
 		}
+		
 
-		if ($_POST['et_er_property_featured']) {
-		update_custom_meta($postID, addslashes($_POST['et_er_property_featured']), 'et_er_property_featured');
-		}
+		// if ($_POST['et_er_property_featured']) {			
+		update_custom_meta($postID, $_POST['et_er_property_featured'], 'et_er_property_featured');
+		// }
 
 		if ($_POST['et_er_adtype']) {
 		update_custom_meta($postID, addslashes($_POST['et_er_adtype']), 'et_er_adtype');
