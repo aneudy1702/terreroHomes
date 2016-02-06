@@ -30,8 +30,7 @@
 			<?php setup_postdata( $post ); ?>
 
 			<?php
-				// $pro_ad_type = get_post_meta(get_the_ID(), 'et_er_adtype', true);
-				// $listing_city = get_post_meta(get_the_ID(), 'et_er_city', true);
+				
 				$detailURL = '/terrerohomes/property/?p_id='. get_the_ID();		
 				$imgURl = null;
 				$property_imgs_ids = get_property_images_ids();
