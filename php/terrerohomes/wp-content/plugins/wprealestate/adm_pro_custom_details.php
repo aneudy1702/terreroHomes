@@ -18,6 +18,7 @@ function property_custom_box( $post ) {
 	$mypostid = $post->ID;
 	
 	$et_er_property_name = stripslashes(get_post_meta($mypostid, 'et_er_property_name', true));
+	$et_er_property_featured = stripslashes(get_post_meta($mypostid, 'et_er_property_featured', true));
 	$et_er_adtype = stripslashes(get_post_meta($mypostid, 'et_er_adtype', true));
 	$et_er_type = stripslashes(get_post_meta($mypostid, 'et_er_type', true));
 	$et_er_built_size = stripslashes(get_post_meta($mypostid, 'et_er_built_size', true));
@@ -44,13 +45,28 @@ function property_custom_box( $post ) {
     
 <div> 
 <h2><?php _e( 'Location Details', 'wp-realestate' ); ?></h2>
+
+
+
 <div class="AdmfrmLabel">
-  <label for="et_er_property_name"><?php _e( 'Property Name', 'wp-realestate' ); ?></label>
+  <label for="et_er_property_featured"><?php _e( 'Featured?', 'wp-realestate' ); ?></label>
 </div>
 <div class="AdmfrmFld">
-<input name="et_er_property_name" type="text" id="et_er_property_name" value="<?php echo $et_er_property_name; ?>" size="14" />
+<input name="et_er_property_featured" type="checkbox" id="et_er_property_featured" value="<?php echo $et_er_property_featured; ?>" size="14" />
 </div>
+
+
 <br style="clear:both;" />
+
+<div class="AdmfrmLabel">
+  	<label for="et_er_property_name"><?php _e( 'Property Name', 'wp-realestate' ); ?></label>
+</div>
+<div class="AdmfrmFld">
+	<input name="et_er_property_name" type="text" id="et_er_property_name" value="<?php echo $et_er_property_name; ?>" size="14" />
+</div>
+
+<br style="clear:both;" />
+
 
 <div class="AdmfrmLabel">
   <label for="et_er_area_location"><?php _e( 'Area / Location', 'wp-realestate' ); ?></label>
@@ -264,6 +280,11 @@ function SavePropertyInfo($postID){
 		if ($_POST['et_er_property_name']) {
 		update_custom_meta($postID, addslashes($_POST['et_er_property_name']), 'et_er_property_name');
 		}
+
+		if ($_POST['et_er_property_featured']) {
+		update_custom_meta($postID, addslashes($_POST['et_er_property_featured']), 'et_er_property_featured');
+		}
+
 		if ($_POST['et_er_adtype']) {
 		update_custom_meta($postID, addslashes($_POST['et_er_adtype']), 'et_er_adtype');
 		}
