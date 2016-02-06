@@ -40,7 +40,10 @@
     $imgUrls = array();
 
     foreach ($property_imgs_ids as $imgId) {
-      array_push($imgUrls, getIMGUrl($imgId));
+      $url = getIMGUrl($imgId);
+      if ($url) {
+        array_push($imgUrls, $url);  
+      }      
     }
   ?>
 
