@@ -1,10 +1,8 @@
 <section class="featured-item">
 
+<?php $featuredItems = getTreatedFeaturedListing(); ?>
 
-<?php $featuredListing = getTerreoListings(); ?>
-
-
-<?php foreach ($featuredListing as $post) { ?>
+<?php foreach ($featuredItems as $post) { ?>
 <!-- for each start -->    
   <?php setup_postdata( $post ); ?>
 
@@ -96,15 +94,7 @@
             <td style="width: 20px;">
             </td>
             <td style="padding-left: 20px; border-left: 1px solid #eeeeee;">
-              <div class="font-size-90 bold view-details-button" style="
-                      margin-right: 10px;
-                      text-align: center;
-                      width: 155px;
-                      padding-top: 8px;
-                      padding-bottom: 8px;
-                      cursor: pointer;
-                      margin-top: 2px;
-                      display: inline-block;">
+              <div class="font-size-90 bold view-details-button">
                 <a href="/terrerohomes/property/?p_id=44">View Details</a>
               </div>
             </td>

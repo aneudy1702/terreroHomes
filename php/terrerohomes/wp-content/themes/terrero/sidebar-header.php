@@ -48,6 +48,58 @@
 
   }
 
+  // mimicate _.map or JS native map
+  function terrero_map($arr, $predicate){
+    $mapList = array();
+    
+    foreach ($arr as $item) {
+      if ($predicate($item)){
+        array_push($mapList, $item);
+      }
+    }
+
+    return $mapList;
+  }
+
+  // get the meta featured state
+  function featuredState($id){
+    return getMetaData('et_er_featured', $id);
+  }
+
+  // filter listing by featured flag
+  function getFeaturedItems($listings = array()) {    
+
+    $filterFeatured = function($listing){
+      $state = featuredState($listing->ID);
+      echo $state;
+      return $state == 'on';
+    };
+
+    $featuredItems = terrero_map($listings, $filterFeatured);
+
+    return $featuredItems;
+  } 
+
+  // add a fallback for when there is not featured items
+  function getTreatedFeaturedListing() {    
+    $listings = getTerreoListings();    
+    $featuredItems = getFeaturedItems($listings);
+    $featuredItem = array();
+
+
+    if (count($featuredItems) == 0) {
+
+      array_push($featuredItem, $listings[0]);
+      
+    } else {
+
+      array_push($featuredItem, $featuredItems[0]);
+      
+    }
+
+    return $featuredItem;
+  }
+
   class ImageObj {
     function ImageObj($data) {
       $this->data = $data;
@@ -64,8 +116,10 @@
     return wp_get_attachment_image_src($imgId, 'medium')[0];
   }
 
-  function getMetaData($prop){
-    return get_post_meta(get_the_ID(), $prop, true);
+  function getMetaData($prop, $ID = null){
+    $id = $ID ? $ID : get_the_ID();
+
+    return get_post_meta($id, $prop, true);
   }
 
 ?>
