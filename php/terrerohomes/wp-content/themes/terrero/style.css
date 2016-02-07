@@ -342,6 +342,17 @@ input[type="reset"]:active {
   background-color: rgba(251,251,251,.7);
   border: 1px solid #e2e2e2;
   margin-bottom: 10px;
+  -webkit-transition: -webkit-transform .1s; /* Safari */
+  -moz-transition: -moz-transform .1s;
+  -ms-transition: -ms-transform .1s;
+  transition: transform .1s;
+}
+
+.mini-listing-list .mini-listing:hover {
+	-ms-transform: scale(1.05);
+	-moz-transform: scale(1.05);
+ 	-webkit-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .mini-listing-list .mini-listing .mini-col {
@@ -725,6 +736,14 @@ html, html a {
 
 .view-details-button {
   background: navy;
+  margin-right: 10px;
+  text-align: center;
+  width: 155px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  cursor: pointer;
+  margin-top: 2px;
+  display: inline-block;
 }
 
 .view-details-button a {
@@ -866,7 +885,7 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  background: #fff;
+  background: #ccc;
   font-size: 16px;
   font-family: "Open Sans";
   font-weight: 300;
