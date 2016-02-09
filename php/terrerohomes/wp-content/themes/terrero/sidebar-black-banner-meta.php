@@ -10,6 +10,7 @@ $rentAmount = getMetaData('et_er_rent_price');
 $saleAmount = getMetaData('et_er_price');
 $paymentAmount = $paymentType == 'Rent' ? $rentAmount : $saleAmount;
 $paymentFrequency = getMetaData('et_er_rent_tenure');
+$property_imgs_ids = get_property_images_ids();
 
 
 ?>
@@ -45,26 +46,27 @@ $paymentFrequency = getMetaData('et_er_rent_tenure');
 
 <div class="two-column-container">
 
-  <div class="multimedia col-lg">
-    <div class="photo-slider-container">
-      <?php get_sidebar('detail-slideshow'); ?> 
+  <div class="col">
+    <div class="multimedia photo">
+      <div class="photo-slider-container">
+        <?php get_sidebar('img-slideshow-tmpl'); ?>
+      </div>
+      <div class="map-container">
+        <?php get_sidebar('detail-map'); ?> 
+      </div>    
     </div>
-    <div class="map-container">
-      <?php get_sidebar('detail-map'); ?> 
-    </div>
-    <div class="nav">
-      <a href="javascript;:">
+    <div class="multimedia-nav">
+      <a class="nav-toggle active" data-which-tab="photo" href="javascript:;">
         <!-- photos -->
-        photos
+        Photos (<?php echo count($property_imgs_ids); ?>)
       </a>
-      <a href="javascript;:">
-        <!-- photos -->
-        map
+      <a class="nav-toggle" data-which-tab="map" href="javascript:;">        
+        Map
       </a>
     </div>
-  </div>
+  </div>  
 
-  <div class="meta-info col-lg">
+  <div class="meta-info col">
     <div class="payment-amount">
       <!-- RENT -->
       <!-- rent price -->

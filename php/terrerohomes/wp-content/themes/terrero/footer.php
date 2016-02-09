@@ -210,6 +210,22 @@ $(function(){
 	$('.terrero-slideshow').each(function(idx, el) {
 		availableSlideShows['slide-'+idx] = new TerreroSlideShow($(el));		
 	});
+
+	$('.multimedia-nav .nav-toggle').on('click', function(){
+		var $link = $(this);
+		var whichTab = $link.data('whichTab');
+		var opositeClass = {
+			photo: 'map',
+			map: 'photo'
+		};
+
+		// update tab menus
+		$('.nav-toggle').removeClass('active');
+		$link.addClass('active');		
+		// update actual tab
+		$('.multimedia').removeClass(opositeClass[whichTab]);
+		$('.multimedia').addClass(whichTab);
+	});
 });
 
 		

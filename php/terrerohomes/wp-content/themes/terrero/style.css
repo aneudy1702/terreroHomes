@@ -593,20 +593,72 @@ input[type="reset"]:active {
   
 }
 
-.col-lg {
-  width: 430px;
-  height: 430px;
-  /*overflow: hidden;*/
+.two-column-container .col {
+  display: inline-block;
+  vertical-align: top;
 }
 
-.col-lg .photo-slider-container {
+.multimedia {
+  width: 430px;
+  height: 430px;
+  position: relative;
+  overflow: hidden;
+}
+
+.multimedia .photo-slider-container {
   height: 430px;
 }
-.col-lg .image-slide-show-container,
-.col-lg .slide-show,
-.col-lg .carousel {
+.multimedia .image-slide-show-container,
+.multimedia .slide-show,
+.multimedia .carousel {
   height: inherit;
-} 
+}
+
+.multimedia .image-slide-show-container .carousel-img {
+  background-size: contain;
+  background-position: 0;
+  background-color: #222;
+}
+.multimedia .map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  
+}
+.multimedia-nav {
+  /*position: absolute;*/
+  /*bottom: 0;*/
+  /*left: 0;*/
+  width: 429px;
+  
+  background-color: navy;
+  
+}
+.multimedia-nav a {
+  color: #fff;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 15px 14px;
+  display: inline-block;
+  width: 110px;
+  text-align: center;
+}
+
+.multimedia-nav a:active,
+.multimedia-nav a:hover,
+.multimedia-nav a.active {
+  background: #499bea;
+}
+
+.multimedia .photo-slider-container,
+.multimedia .map-container {
+  display: none;
+}
+.multimedia.photo .photo-slider-container,
+.multimedia.map .map-container {
+  display: block;
+}
 
 .listing-detail .hotel-details-view-container .slide-show-address-box div {
   font-size: 1.45em;

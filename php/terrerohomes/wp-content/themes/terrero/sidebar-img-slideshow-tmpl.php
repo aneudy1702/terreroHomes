@@ -1,6 +1,6 @@
 <?php
 
-$property_imgs_ids = get_property_images_ids();
+$property_imgs_ids = $property_imgs_ids ? $property_imgs_ids : get_property_images_ids();
 
 $imgUrls = array();
 
@@ -10,6 +10,7 @@ foreach ($property_imgs_ids as $imgId) {
     array_push($imgUrls, $url);  
   }      
 }
+$imgCount = count($imgUrls);
 
 ?>
 <div class="image-slide-show-container">
