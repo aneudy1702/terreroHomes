@@ -17,21 +17,14 @@ $p_pro_id_display = get_option('p_pro_id_display');
 
 
 ?>
-
-<div id="content" class="site-content agtpglist">
-	<!-- LISTINGS HEADER -->
-	<h1>
-		<div class="color-fg-black listings-header">
-			Property Listings  
-		</div>
-  	</h1>
-  	<!-- LISTINGS HEADER END -->
-
-	<?php
-		// if ($catproperty) {
-			// echo '- '.$catproperty;
-		// }
-	?>	
+<!-- LISTINGS HEADER -->
+<h1>
+	<div class="color-fg-black listings-header">
+		Property Listings  
+	</div>
+</h1>
+<!-- LISTINGS HEADER END -->
+<div id="content" class="site-content agtpglist clear-bgX">	
 	
 	<!-- CHECK IF COMING FROM A FORM -->
 	<?php
@@ -377,10 +370,18 @@ $args_property = array(
 
 ?>
 
+
 <?php 
 	
 	$posts = get_posts($args_property);
-	
+	$amountOfPosts = count($posts);
+?>
+	<div class="mini-meta-header">
+		<span class="number-results">
+			<?php echo $amountOfPosts; ?> Rentals Found
+		</span>
+	</div>
+<?php
 	
 
 	class PostsByCity {
@@ -424,9 +425,16 @@ function formImgStyle($imgs, $whichOne){
 
 if ( count($postSorter->postByCities) > 0 ) {
 foreach ($postSorter->postByCities as $city => $posts) {
+?>
 	
-	echo "<h2>".$city."</h2>";
-	
+	<div class="region" data-region="<?php echo $city; ?>">
+		<!-- div.region-header -->
+		<div class="region-header">
+			<h2><?php echo $city; ?></h2>
+		</div>
+		<!-- div.region-header -->
+
+<?php
 	foreach ($posts as $post) {
 		setup_postdata( $post );
 
@@ -436,8 +444,8 @@ foreach ($postSorter->postByCities as $city => $posts) {
 		$noImgUrl = ET_RE_URL . '/images/no-image.jpg';
 ?>
 
-		<!-- LISTING TEMPLATE -->
-		  <div class="search-listing" listing_id="<?php get_the_ID() ?>" onmouseover="" latitude="42.3286" longitude="-71.0637" style="margin-top: 30px; width: 680px;">
+		<!-- LISTING TEMPLATE -->		
+		  <div class="search-listing" listing_id="<?php get_the_ID() ?>" onmouseover="" latitude="42.3286" longitude="-71.0637">
 		    <table>
 		      <tbody>
 		        <tr>
@@ -562,9 +570,8 @@ foreach ($postSorter->postByCities as $city => $posts) {
 		<!-- LISTING TEMPLATE -->
 
 	<?php } ?>
-	<div class="SpacerDiv"></div>
-	<div class="SpacerDiv"></div>
-	<div class="SpacerDiv"></div>
+	<!-- closing div to div.region -->
+	</div>	  
 <?php } ?>
 
 </div>

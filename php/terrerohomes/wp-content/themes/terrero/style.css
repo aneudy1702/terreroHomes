@@ -398,9 +398,26 @@ input[type="reset"]:active {
   min-height: 640px;
   border: 1px #000 solid;
 }
+.clear-bg {
+  background: transparent!important;
+}
 
+.mini-meta-header {
+  padding: 5px 0;
+  border-bottom: 1px solid navy;
+}
+.region {
+  padding: 20px 0;
+  margin-bottom: 40px;
+  border-bottom: 1px dotted navy;
+}
 .search-listing {
-
+  background: #fff;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+.search-listing:last-child{
+  margin-bottom: 0;
 }
 
 .search-listing .img-cont {
@@ -414,6 +431,9 @@ input[type="reset"]:active {
   width: 260px;
   /*border: 1px solid navy;*/
 
+}
+.search-listing .img.no-image {
+  border: 5px solid #ccc;
 }
 
 .listing-detail .hotel-details-view-container .slide-show-address-box div {
