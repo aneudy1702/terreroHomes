@@ -1,14 +1,14 @@
 <?php
 get_header();
 
-$p_detail_sidebar = get_option('p_detail_sidebar');
+// $p_detail_sidebar = get_option('p_detail_sidebar');
 
 // global $post;
 
 
 $post = get_post($_GET['p_id']);
 
-
+setup_postdata( $post );
 
 ?>
 <script type="text/javascript">var switchTo5x=true;</script>
@@ -58,46 +58,41 @@ jQuery(window).load(function() {
 	
 	<!-- slide show and quick details section -->
   <section class="">
-		<?php get_sidebar('details-upper-container'); ?>
+		<?php get_sidebar('detail-upper-container'); ?>
   </section>
   <!-- slide show and quick details section -->
 	
 	
 	<!-- Details section -->
 	<section>	
-		<?php get_sidebar('details-meta'); ?>
+		<?php get_sidebar('detail-meta'); ?>
 	</section>
 	<!-- Details Section -->
 
   
   <!-- description section -->
   <section>
-  	<?php get_sidebar('details-description'); ?>
+  	<?php get_sidebar('detail-description'); ?>
   </section>  
 	<!-- description section -->
 
 	
 	<!-- features and amenities  section -->
 	<section>
-		<?php get_sidebar('details-amenities'); ?>
+		<?php get_sidebar('detail-amenities'); ?>
 	</section>
 	<!-- features and amenities  section -->
 	
 	
 	<!-- map section -->
 	<section>
-		<?php get_sidebar('details-map'); ?>
+		<?php get_sidebar('detail-map'); ?>
 		
 	</section>
 	<!-- map section -->
 
 </div>
 
-
-<!--<div id="ProDescription">
-<div class="heading">Map</div>
-<iframe src="https://www.google.com/maps/embed?location=London" width="600" height="450" frameborder="0" style="border:0"></iframe>
-</div>-->
 <div class="contact-agent-form">
 
 	<?php  get_sidebar('contact-agent-form'); ?>
@@ -107,7 +102,5 @@ jQuery(window).load(function() {
 
 // Reset Query
 wp_reset_query();
-if ($p_detail_sidebar == 1) {
-get_sidebar();
-} ?>
-<?php get_footer(); ?>
+
+get_footer(); ?>
