@@ -1,18 +1,22 @@
 <?php 
 
 // VARIABLES
-$title = the_title();
+
 $address = getMetaAddress();
 $listingType = getMetaData('et_er_type');
 $paymentType = getMetaData('et_er_adtype');
 $secondaryTitle = $listingType .' for ' . $paymentType;
-$postedTime = the_time('F jS, Y');
+$rentAmount = getMetaData('et_er_rent_price');
+$saleAmount = getMetaData('et_er_price');
+$paymentAmount = $paymentType == 'Rent' ? $rentAmount : $saleAmount;
+$paymentFrequency = getMetaData('et_er_rent_tenure');
+
 
 ?>
 <div class="banner-container cf">
   <div class="column">
     <div class='title'>
-        <?php echo $title; ?>
+        <?php the_title(); ?>
     </div>
 
     <div>
@@ -30,7 +34,7 @@ $postedTime = the_time('F jS, Y');
     </div>
 
     <div>
-      Last updated on <?php echo $postedTime; ?>
+      Last updated on <?php the_time('F jS, Y'); ?>
     </div>
 
   </div>
@@ -41,10 +45,51 @@ $postedTime = the_time('F jS, Y');
 
 <div class="two-column-container">
 
-  <div class="multimedia"></div>
+  <div class="multimedia">
+    <div class="photo-slider-container">
+      photo-slider-container
+    </div>
+    <div class="map-container">
+      map-container
+    </div>
+    <div class="nav">
+      <a href="javascript;:">
+        <!-- photos -->
+        photos
+      </a>
+      <a href="javascript;:">
+        <!-- photos -->
+        map
+      </a>
+    </div>
+  </div>
 
   <div class="meta-info">
+    <div class="payment-amount">
+      <!-- RENT -->
+      <!-- rent price -->
+      <div>
+        <?php echo ET_RE_Currency . $paymentAmount; ?>
+      </div>
+      <!-- rent price -->
 
+      <!-- rent tenure -->
+      <?php if ($paymentType == 'Rent') {?>
+        <div>
+          <?php echo $paymentFrequency; ?>
+        </div>
+      <?php } ?>
+      
+      <!-- rent price -->
+      <!-- RENT -->
+    </div>
+    <div class="small-details">
+      <ul>
+        <li>some</li>
+        <li>details</li>
+        <li>here</li>
+      </ul>
+    </div>
   </div>
 
 </div>
