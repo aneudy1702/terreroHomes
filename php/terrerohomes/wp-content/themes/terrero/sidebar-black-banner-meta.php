@@ -45,12 +45,12 @@ $paymentFrequency = getMetaData('et_er_rent_tenure');
 
 <div class="two-column-container">
 
-  <div class="multimedia">
+  <div class="multimedia col-lg">
     <div class="photo-slider-container">
-      photo-slider-container
+      <?php get_sidebar('detail-slideshow'); ?> 
     </div>
     <div class="map-container">
-      map-container
+      <?php get_sidebar('detail-map'); ?> 
     </div>
     <div class="nav">
       <a href="javascript;:">
@@ -64,7 +64,7 @@ $paymentFrequency = getMetaData('et_er_rent_tenure');
     </div>
   </div>
 
-  <div class="meta-info">
+  <div class="meta-info col-lg">
     <div class="payment-amount">
       <!-- RENT -->
       <!-- rent price -->
