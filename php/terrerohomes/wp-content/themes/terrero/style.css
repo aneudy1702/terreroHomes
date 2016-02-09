@@ -410,8 +410,8 @@ input[type="reset"]:active {
 
 .search-listing .img {
   background-size: cover;
-  height: 130px;
-  width: 160px;
+  height: 230px;
+  width: 260px;
   /*border: 1px solid navy;*/
 
 }
