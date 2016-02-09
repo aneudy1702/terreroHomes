@@ -15,8 +15,7 @@ foreach ($property_imgs_ids as $imgId) {
 <div class="image-slide-show-container">
   <div class="slide-show terrero-slideshow">
     <div class="carousel">
-      <ul>  
-        <?php echo $imgUrls ?>
+      <ul>          
         <?php foreach ($imgUrls as $imgURL) { ?>
 
         <li>            
