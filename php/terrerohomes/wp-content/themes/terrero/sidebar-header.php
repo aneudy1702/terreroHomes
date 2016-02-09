@@ -122,4 +122,23 @@
     return get_post_meta($id, $prop, true);
   }
 
+  function getMetaAddress() {
+    $address = '';
+    $meta_address = getMetaData('et_er_address');
+    $meta_location = getMetaData('et_er_area_location');
+    $meta_city = getMetaData('et_er_city');
+    $meta_zipcode = getMetaData('et_er_zipcode');
+
+    if ($meta_address) {
+      $address .= $meta_address .  ', '; 
+    }
+    if ($meta_location) {
+      $address .= $meta_location . ', ';
+    }
+
+    $address .= $meta_city .' '. $meta_zipcode;
+
+    return $address;
+  }
+
 ?>

@@ -12,26 +12,7 @@
     // $pro_ad_type = get_post_meta(get_the_ID(), 'et_er_adtype', true);
     
     $detailURL = '/terrerohomes/property/?p_id='. get_the_ID(); 
-    $address = '';
-    
-    $meta_address = getMetaData('et_er_address');
-    $meta_location = getMetaData('et_er_area_location');
-    $meta_city = getMetaData('et_er_city');
-    $meta_zip_code = getMetaData('et_er_zipcode');
-
-    if ($meta_address) {
-
-      $address .= $meta_address . ', '; 
-
-    }
-
-    if ($meta_location) {
-
-      $address .= $meta_location . ', ';
-
-    }
-
-    $address .=  $meta_city . ' ' . $meta_zip_code; 
+    $address = getMetaAddress(); 
     
     $property_imgs_ids = get_property_images_ids();
 

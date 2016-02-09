@@ -9,20 +9,7 @@
           </div>
 
           <div>
-            <?php 
-
-              $address = '';
-
-              if (get_post_meta($post->ID, 'et_er_address', true)) {
-                $address .= get_post_meta($post->ID, 'et_er_address', true).', '; 
-              }
-              if (get_post_meta($post->ID, 'et_er_area_location', true)) {
-                $address .= get_post_meta($post->ID, 'et_er_area_location', true).', ';
-              }
-              $address .= get_post_meta($post->ID, 'et_er_city', true).' '.get_post_meta($post->ID, 'et_er_zipcode', true); 
-
-              echo $address;                  
-            ?>
+            <?php echo getMetaAddress(); ?>
           </div>
 
         </td>
