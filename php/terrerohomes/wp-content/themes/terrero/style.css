@@ -594,10 +594,19 @@ input[type="reset"]:active {
 }
 
 .col-lg {
-  width: 350px;
-  overflow: hidden;
+  width: 430px;
+  height: 430px;
+  /*overflow: hidden;*/
 }
 
+.col-lg .photo-slider-container {
+  height: 430px;
+}
+.col-lg .image-slide-show-container,
+.col-lg .slide-show,
+.col-lg .carousel {
+  height: inherit;
+} 
 
 .listing-detail .hotel-details-view-container .slide-show-address-box div {
   font-size: 1.45em;
