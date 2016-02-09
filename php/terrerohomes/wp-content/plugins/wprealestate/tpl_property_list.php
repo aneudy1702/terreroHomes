@@ -449,120 +449,74 @@ foreach ($postSorter->postByCities as $city => $posts) {
 		    <table>
 		      <tbody>
 		        <tr>
-
-
-							<!--********* listing images here **********-->
-							<?php
-															
-								$property_imgs = get_property_images_ids();
-								$imgClass = 'img';
-								
-								if (!$property_imgs) {
-									$imgClass .= ' no-image';
-								}
-
-							?>
-
-							<a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
-								<?php 
-									for ($i=1; $i <= 2; $i++) { ?>
-
-										<td class="img-cont">
-											<div
-												class="<?php echo $imgClass; ?>"
-												style="<?php echo formImgStyle($property_imgs, $i); ?>">
-											</div>
-										</td>
+		        	<td>		        	
+								<!--********* listing images here **********-->
 								<?php
+																
+									$property_imgs = get_property_images_ids();
+									$imgClass = 'img';
+									
+									if (!$property_imgs) {
+										$imgClass .= ' no-image';
 									}
+
 								?>
-							</a>
-		          <!--********** listing images here **************-->
 
+								<a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
+									<?php 
+										for ($i=1; $i <= 2; $i++) { ?>
 
+											<td class="img-cont">
+												<div
+													class="<?php echo $imgClass; ?>"
+													style="<?php echo formImgStyle($property_imgs, $i); ?>">
+												</div>
+											</td>
+									<?php
+										}
+									?>
+								</a>
+			          <!--********** listing images here **************-->
+		          </td>
 
-		          <!--********** here it is where the meta info leaves **********-->
-		            <td style="padding-left: 20px; vertical-align: top; width: 360px;">
-		              
-		              <!-- Listing Title -->
-		                <div class="font-size-100 bold" style="padding-bottom: 1px; margin-top: -2px;">
-		                  <!-- title anchor -->
-		                  <a 
-		                    class="listing-title-link"
-		                    style=""
-		                    href="<?php echo $detailURL ?>"
-		                    title="<?php echo the_title(); ?>"
-		                  >
-		                    <!-- title name -->
-		                    <?php echo the_title(); ?>
-		                  </a>
-		                </div>
-		              <!-- Listing Title -->
+		          <td>
+								<!--********** here it is where the meta info leaves **********-->
+								<div class="listing-details">
+									
 
-		              <!-- Listing city -->
-		                <div class="font-size-80" style="width: 330px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
-		                  <?php echo $listing_city; ?>
-		                </div>
-		              <!-- Listing city -->
+									<div class="listing-price-highlight">
+										<span class="amount"><?php echo ET_RE_Currency.get_post_meta(get_the_ID(), 'et_er_rent_price', true) ?></span>
+										<span class="frequency">Per Month</span>									
+									</div>
+									<div class="inner-cont">
+										<a href="<?php echo $detailURL ?>" title="<?php echo the_title(); ?>">
+		                  <!-- title name -->
+		                  <div class="listing-title-link">
+		                  	<?php echo the_title(); ?>
+		                  </div>
+		                  
+		                </a>
+										<!-- title anchor -->	                
+										<div class="features">
+											<div class="feat-item">
+												<label>Location:</label>
+												<span><?php echo $listing_city; ?></span>
 
-		              <!-- Listing subsection -->
-		                <div style="padding-top: 11px; padding-bottom: 11px;">
-		                  <table>
-		                    <tbody>
-		                      <!-- single row -->
-		                        <tr>
+											</div>
+											<div class="feat-item">
+												<label>Posted On:</label>
+												<span><?php the_time('F jS, Y') ?></span>
+											</div>
+										</div>
 
-		                          <!-- Price Col -->
-		                          <td style="width: 75px; border-right: 1px solid #eeeeee;">
-		                            <div class="bold color-fg-green font-size-100" style="padding-bottom: 0px;">
-		                              <?php echo ET_RE_Currency.get_post_meta(get_the_ID(), 'et_er_rent_price', true) ?>
-		                            </div>
-		                            <div class="font-size-80" style="color: #666666;">
-		                              Per Month
-		                            </div>
-		                          </td>
-		                          <!-- Price Col -->
-
-		                          <!-- Unknown Col -->
-		                          <td style="width: 75px; padding-left: 15px; border-right: 1px solid #eeeeee;">
-		                            <div fs="100" qs="93" ms="62" rs="100" class="color-fg-blue bold font-size-100" style="padding-bottom: 0px; position: relative; cursor: pointer;">
-		                              optional
-		                            </div>
-		                            <div class="font-size-80" style="color: #666666;">
-		                              Column
-		                            </div>
-		                          </td>
-		                          <!-- Unknown Col -->
-
-		                          <!-- Posted Date -->
-		                          <td style="padding-left: 15px; vertical-align: bottom;">
-		                            <div class="bold font-size-100" style="">
-		                              <?php the_time('F jS, Y') ?>
-		                              <!-- <span class="font-size-80">mins ago</span> -->
-		                            </div>
-		                            <div>
-		                              <div class="font-size-80" style="color: #666666;">
-		                                Posted on
-		                              </div>
-		                              <!-- More units at
-		                              <br><a class="color-fg-blue" href="/boston/building/871-beacon-street-boston-massachusetts-02215">871 Beacon Street</a> -->
-		                            </div>
-		                          </td>
-		                          <!-- Posted Date -->
-		                        </tr>
-		                      <!-- single row -->
-		                    </tbody>
-		                  </table>
-		                </div>
-		              <!-- Listing subsection -->
-
-		              <div class="font-size-90 bold view-details-button" style="margin-right: 10px; text-align: center; width: 155px; padding-top: 8px; padding-bottom: 8px; cursor: pointer; margin-top: 2px; display: inline-block;">
-		                <a href="<?php echo $detailURL ?>">View Details</a>
-		              </div>
-
-		            </td>
-		          <!--********** here it is where the meta info leaves **********-->
-
+										<div class="font-size-90 bold view-details-button">
+				              <a href="<?php echo $detailURL ?>">View Details</a>
+			              </div>
+									</div>
+									
+								</div>		            
+			          <!--********** here it is where the meta info lives **********-->
+		          </td>
 		        </tr>
 		      </tbody>
 		    </table>

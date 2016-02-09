@@ -436,6 +436,67 @@ input[type="reset"]:active {
   border: 5px solid #ccc;
 }
 
+.search-listing .listing-details {
+  display: inline-block;
+
+}
+
+.search-listing .listing-details .inner-cont {
+  padding: 10px;
+}
+
+.search-listing .listing-details .listing-title-link {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.search-listing .listing-details .listing-title-link,
+.search-listing .listing-details .features {
+  margin-bottom: 5px;
+}
+.search-listing .listing-details .features {
+  margin-bottom: 10px;
+}
+.search-listing .listing-details .features .feat-item {
+  padding: 5px 8px;
+}
+
+.search-listing .listing-details .features .feat-item label{
+  margin: 0 10px;
+
+}
+.search-listing .listing-details .features .feat-item label,
+.search-listing .listing-details .features .feat-item span {
+  display: inline-block;
+
+}
+.search-listing .listing-details .features .feat-item label {
+  width: 80px;
+}
+.search-listing .listing-details .features .feat-item span {
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.search-listing .listing-details .features .feat-item:nth-child(even) {
+  background: #f0efef;
+  /*color: #333;*/
+}
+.search-listing .listing-details .features .feat-item:nth-child(odd) {
+  background: #fff;
+  /*color: #ccc;*/
+}
+
+.search-listing .listing-details .listing-price-highlight{
+  /*border: 1px solid navy;*/
+  color: navy;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+  background: #4ab4e8;
+}
+
 .listing-detail .hotel-details-view-container .slide-show-address-box div {
   font-size: 1.45em;
   width: 360px;
@@ -773,14 +834,15 @@ html, html a {
 
 .view-details-button {
   background: navy;
-  margin-right: 10px;
+  
   text-align: center;
-  width: 155px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  width: 130px;
+  padding: 10px;
   cursor: pointer;
-  margin-top: 2px;
-  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  
+  
 }
 
 .view-details-button a {
