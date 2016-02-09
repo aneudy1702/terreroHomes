@@ -140,7 +140,7 @@ $(function(){
 		this.$carousel = this.$el.find('.carousel');
 		this.duration = 250; //quater of a second by defualt
 		this.currentPosition = 0;
-		this.init();
+		// this.init();
 	};
 
 	// get transform will get hoisted to the top of the function scope
