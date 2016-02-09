@@ -18,17 +18,20 @@ $p_pro_id_display = get_option('p_pro_id_display');
 
 ?>
 
-<div class="site-content agtpglist">
+<div id="content" class="site-content agtpglist">
 	<!-- LISTINGS HEADER -->
 	<h1>
-	<div class="color-fg-black listings-header">
-  	Property Listings  
-  </div>
+		<div class="color-fg-black listings-header">
+			Property Listings  
+		</div>
+  	</h1>
+  	<!-- LISTINGS HEADER END -->
 
-	<?php if ($catproperty) { echo '- '.$catproperty; } ?>
-
-	</h1>
-	<!-- LISTINGS HEADER END -->
+	<?php
+		// if ($catproperty) {
+			// echo '- '.$catproperty;
+		// }
+	?>	
 	
 	<!-- CHECK IF COMING FROM A FORM -->
 	<?php
@@ -362,10 +365,12 @@ $p_pro_id_display = get_option('p_pro_id_display');
 	
 // THIS MEANS IT IS COMING FROM A GET REQUEST OR JUST HITTING THE URL
 
+
+// Aneudy starts here
 // $city = isset($_GET['city']) ? $_GET['city'] : null;
 $args_property = array(
 	'post_type'=> 'property',
-	'posts_per_page' => $et_re_pp_listing,
+	// 'posts_per_page' => $et_re_pp_listing,
 	'paged' => get_query_var('paged'),
 	's' => $_POST['sbpn']
 );
@@ -406,18 +411,29 @@ $args_property = array(
 
 <div id="search-results-box" style="min-height: 600px;">
 <?php
+
+function formImgStyle($imgs, $whichOne){
+	$styleString = '';
+	if ($imgs) {
+		$id = $imgs['property_image' . $whichOne];
+		$url = wp_get_attachment_image_src($id, 'medium')[0];
+		$styleString = 'background-image: url(' . $url .')';		
+	}	
+	return $styleString;
+}
+
 if ( count($postSorter->postByCities) > 0 ) {
 foreach ($postSorter->postByCities as $city => $posts) {
-	// print_r();
+	
 	echo "<h2>".$city."</h2>";
-	// echo count($posts);
-	// echo "<div>******************</div>";
+	
 	foreach ($posts as $post) {
 		setup_postdata( $post );
 
 		$pro_ad_type = get_post_meta(get_the_ID(), 'et_er_adtype', true);
 		$listing_city = get_post_meta(get_the_ID(), 'et_er_city', true);
 		$detailURL = '/terrerohomes/property/?p_id='. get_the_ID();
+		$noImgUrl = ET_RE_URL . '/images/no-image.jpg';
 ?>
 
 		<!-- LISTING TEMPLATE -->
@@ -427,37 +443,35 @@ foreach ($postSorter->postByCities as $city => $posts) {
 		        <tr>
 
 
-		          <!--********* listing images here **********-->
-		            <?php $property_imgs = get_property_images_ids();?>
+							<!--********* listing images here **********-->
+							<?php
+															
+								$property_imgs = get_property_images_ids();
+								$imgClass = 'img';
+								
+								if (!$property_imgs) {
+									$imgClass .= ' no-image';
+								}
 
-		              <?php if ($property_imgs) { ?>
-		                <!-- if photos available -->
-		                <td style="vertical-align: top;">
-		                  <a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
-		                    <div style="background-image: url(<?php echo wp_get_attachment_image_src($property_imgs['property_image1'], 'medium')[0]; ?>); background-size: cover; height: 130px; width: 160px; border: 1px solid navy; border-right: 1px solid #888888;"></div>
-		                  </a>
-		                </td>
-		                <td style="vertical-align: top; position: relative;">
-		                  <a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
-		                    <div style="background-image: url(<?php echo wp_get_attachment_image_src($property_imgs['property_image2'], 'medium')[0]; ?>); background-size: cover; height: 130px; width: 160px; border: 1px solid navy; border-left: none;"></div>
-		                  </a>
-		                </td>
+							?>
 
-		              <?php } else { ?>
-		                <!-- if not photos available -->
-		                <td style="vertical-align: top;">
-		                  <a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
-		                    <div class="no-image" style="background-image: url(<?php echo ET_RE_URL; ?>/images/no_property_image.png);"></div>
-		                  </a>
-		                </td>
-		                <td style="vertical-align: top; position: relative;">
-		                  <a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
-		                    <div class="no-image" style="background-image: url(<?php echo ET_RE_URL; ?>/images/no_property_image.png);"></div>
-		                  </a>
-		                </td>
+							<a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
+								<?php 
+									for ($i=1; $i <= 2; $i++) { ?>
 
-		            <?php } ?>
+										<td class="img-cont">
+											<div
+												class="<?php echo $imgClass; ?>"
+												style="<?php echo formImgStyle($property_imgs, $i); ?>">
+											</div>
+										</td>
+								<?php
+									}
+								?>
+							</a>
 		          <!--********** listing images here **************-->
+
+
 
 		          <!--********** here it is where the meta info leaves **********-->
 		            <td style="padding-left: 20px; vertical-align: top; width: 360px;">
