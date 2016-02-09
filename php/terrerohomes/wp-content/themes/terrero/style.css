@@ -557,6 +557,44 @@ input[type="reset"]:active {
   background: #4ab4e8;
 }
 
+/*black banner container*/
+.banner-container {
+  font-size: 12px;
+  color: #b6b9bd;
+  margin: 0;
+  padding: 15px 0;
+  overflow: hidden;
+  background: navy;
+  text-align: center;
+}
+
+.banner-container .column {
+  /*border: 1px solid;*/
+  width: 300px;
+  margin: 0 15px;
+  display: inline-block;
+  text-align: left;
+}
+
+.banner-container .title {
+  font-size: 24px;
+  /*line-height: 35px;  */
+
+}
+
+.banner-container .title,
+.banner-container .secondary-title{
+  color: #fff;
+  font-weight: normal;
+  line-height: 35px;  
+} 
+.banner-container .secondary-title {
+  font-size: 18px;  
+  
+}
+
+
+
 .listing-detail .hotel-details-view-container .slide-show-address-box div {
   font-size: 1.45em;
   width: 360px;

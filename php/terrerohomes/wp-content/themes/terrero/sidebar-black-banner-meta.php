@@ -1,25 +1,31 @@
-<div class="banner-container">
-  <table>
-    <tbody>
-      <tr>
-        <td>
+<div class="banner-container cf">
+  <div class="column">
+    <div class='title'>
+        <?php the_title(); ?>
+    </div>
 
-          <div>
-              <?php the_title(); ?>
-          </div>
+    <div>
 
-          <div>
-            <?php echo getMetaAddress(); ?>
-          </div>
+      <?php echo getMetaAddress(); ?>
+    </div>
+  </div>
+  
+  <div class="column">
 
-        </td>
+    <div class="secondary-title">
+      <?php
+        echo getMetaData('et_er_type') .' for ' . getMetaData('et_er_adtype');
+      ?>
+    </div>
 
-        <td>
+    <div>
+      Last updated on <?php the_time('F jS, Y'); ?>
+    </div>
 
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  </div>
+
+  
+
 </div>
 
 <div class="two-column-container">
