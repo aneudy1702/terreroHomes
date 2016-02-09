@@ -363,8 +363,8 @@ $p_pro_id_display = get_option('p_pro_id_display');
 // $city = isset($_GET['city']) ? $_GET['city'] : null;
 $args_property = array(
 	'post_type'=> 'property',
-	// 'posts_per_page' => $et_re_pp_listing,
-	'paged' => get_query_var('paged'),
+	'posts_per_page' => 500,
+	// 'paged' => get_query_var('paged'),
 	's' => $_POST['sbpn']
 );
 
@@ -430,10 +430,10 @@ foreach ($postSorter->postByCities as $city => $posts) {
 	<div class="region" data-region="<?php echo $city; ?>">
 		<!-- div.region-header -->
 		<div class="region-header">
-			<h2><?php echo $city; ?></h2>
-		</div>
+			<span><?php echo $city; ?></span>
+		</div>		
 		<!-- div.region-header -->
-
+		<div class="region-listings">
 <?php
 	foreach ($posts as $post) {
 		setup_postdata( $post );
@@ -446,84 +446,77 @@ foreach ($postSorter->postByCities as $city => $posts) {
 
 		<!-- LISTING TEMPLATE -->		
 		  <div class="search-listing" listing_id="<?php get_the_ID() ?>" onmouseover="" latitude="42.3286" longitude="-71.0637">
-		    <table>
-		      <tbody>
-		        <tr>
-		        	<td>		        	
-								<!--********* listing images here **********-->
-								<?php
-																
-									$property_imgs = get_property_images_ids();
-									$imgClass = 'img';
-									
-									if (!$property_imgs) {
-										$imgClass .= ' no-image';
-									}
+  	   	     	
+				<!--********* listing images here **********-->
+				<div class="listing-images">
+					<?php
+												
+						$property_imgs = get_property_images_ids();
+						$imgClass = 'img';
+						
+						if (!$property_imgs) {
+							$imgClass .= ' no-image';
+						}
 
-								?>
+					?>
 
-								<a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
-									<?php 
-										for ($i=1; $i <= 2; $i++) { ?>
+					<a href="<?php echo $detailURL ?>" title="<?php the_title(); ?>">
+						<?php 
+							for ($i=1; $i <= 2; $i++) { ?>								
+								<div
+									class="<?php echo $imgClass; ?>"
+									style="<?php echo formImgStyle($property_imgs, $i); ?>">
+								</div>								
+						<?php
+							}
+						?>
+					</a>
+				</div>				
+        <!--********** listing images here **************-->
 
-											<td class="img-cont">
-												<div
-													class="<?php echo $imgClass; ?>"
-													style="<?php echo formImgStyle($property_imgs, $i); ?>">
-												</div>
-											</td>
-									<?php
-										}
-									?>
-								</a>
-			          <!--********** listing images here **************-->
-		          </td>
+				<!--********** here it is where the meta info leaves **********-->
+				<div class="listing-details">
+					
 
-		          <td>
-								<!--********** here it is where the meta info leaves **********-->
-								<div class="listing-details">
-									
+					<div class="listing-price-highlight">
+						<span class="amount"><?php echo ET_RE_Currency.get_post_meta(get_the_ID(), 'et_er_rent_price', true) ?></span>
+						<span class="frequency">Per Month</span>									
+					</div>
+					<div class="inner-cont">
+						<a href="<?php echo $detailURL ?>" title="<?php echo the_title(); ?>">
+              <!-- title name -->
+              <div class="listing-title-link">
+              	<?php echo the_title(); ?>
+              </div>
+              
+            </a>
+						<!-- title anchor -->	                
+						<div class="features">
+							<div class="feat-item">
+								<label>Location:</label>
+								<span><?php echo $listing_city; ?></span>
 
-									<div class="listing-price-highlight">
-										<span class="amount"><?php echo ET_RE_Currency.get_post_meta(get_the_ID(), 'et_er_rent_price', true) ?></span>
-										<span class="frequency">Per Month</span>									
-									</div>
-									<div class="inner-cont">
-										<a href="<?php echo $detailURL ?>" title="<?php echo the_title(); ?>">
-		                  <!-- title name -->
-		                  <div class="listing-title-link">
-		                  	<?php echo the_title(); ?>
-		                  </div>
-		                  
-		                </a>
-										<!-- title anchor -->	                
-										<div class="features">
-											<div class="feat-item">
-												<label>Location:</label>
-												<span><?php echo $listing_city; ?></span>
+							</div>
+							<div class="feat-item">
+								<label>Posted On:</label>
+								<span><?php the_time('F jS, Y') ?></span>
+							</div>
+						</div>
 
-											</div>
-											<div class="feat-item">
-												<label>Posted On:</label>
-												<span><?php the_time('F jS, Y') ?></span>
-											</div>
-										</div>
-
-										<div class="font-size-90 bold view-details-button">
-				              <a href="<?php echo $detailURL ?>">View Details</a>
-			              </div>
-									</div>
-									
-								</div>		            
-			          <!--********** here it is where the meta info lives **********-->
-		          </td>
-		        </tr>
-		      </tbody>
-		    </table>
+						<div class="font-size-90 bold view-details-button">
+              <a href="<?php echo $detailURL ?>">View Details</a>
+            </div>
+					</div>
+					
+				</div>		            
+        <!--********** here it is where the meta info lives **********-->
+		         
 		  </div>
 		<!-- LISTING TEMPLATE -->
 
 	<?php } ?>
+		<!-- closing div to div.region-listings -->
+		</div>
 	<!-- closing div to div.region -->
 	</div>	  
 <?php } ?>

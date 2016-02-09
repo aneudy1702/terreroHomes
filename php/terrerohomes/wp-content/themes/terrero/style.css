@@ -411,15 +411,69 @@ input[type="reset"]:active {
   margin-bottom: 40px;
   border-bottom: 1px dotted navy;
 }
+
+.region-header {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0 0 15px 0;
+}
+
+.region-listings {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  
+  -webkit-justify-content: space-between;  
+  -moz-justify-content: space-between;     
+  -ms-justify-content: space-between;     
+  -webkit-justify-content: space-between;  
+  justify-content: space-between; 
+}
+
+.region-listings .search-listing {
+  -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: 1;         /* OLD - Firefox 19- */
+  /*width: 20%;                For old syntax, otherwise collapses. */
+  -webkit-flex: 1;          /* Chrome */
+  -ms-flex: 1;              /* IE 10 */
+  flex: 1;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+
+}
+
 .search-listing {
   background: #fff;
   margin-bottom: 30px;
   padding: 10px;
-}
-.search-listing:last-child{
-  margin-bottom: 0;
+  border: 1px dotted navy;
+  width: 315px;
+  max-width: 315px;
+  min-width: 315px;
+  display: inline-block;
+  margin: 0 15px 15px 0;
+  
 }
 
+
+
+.search-listing:first-child{
+  margin-left: 0;
+}
+.search-listing:nth-child(3n+3){
+  margin-right: 0;
+}
+
+.search-listing .view-details-button {
+  margin: 0 auto;
+}
 .search-listing .img-cont {
   vertical-align: top; 
   position: relative;
@@ -427,17 +481,23 @@ input[type="reset"]:active {
 
 .search-listing .img {
   background-size: cover;
-  height: 230px;
-  width: 260px;
+  height: 145px;
+  width: 145px;
+  display: inline-block;  
   /*border: 1px solid navy;*/
 
 }
+.search-listing .img:first-child {
+  margin-right: -2px;
+}
+
 .search-listing .img.no-image {
   border: 5px solid #ccc;
+  background-size: 100% 100%;
 }
 
 .search-listing .listing-details {
-  display: inline-block;
+  /*display: inline-block;*/
 
 }
 
