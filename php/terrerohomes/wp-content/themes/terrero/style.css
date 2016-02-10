@@ -599,7 +599,7 @@ input[type="reset"]:active {
 }
 
 .two-column-container .col:first-child {
-  margin-right: 30px;
+  /*margin-right: 30px;*/
 }
 
 
