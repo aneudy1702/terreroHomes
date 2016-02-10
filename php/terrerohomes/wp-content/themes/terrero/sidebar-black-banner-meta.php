@@ -46,7 +46,7 @@ $property_imgs_ids = get_property_images_ids();
 
 <div class="two-column-container">
 
-  <div class="col">
+  <div class="col multi">
     <?php get_sidebar('multimedia-box'); ?>
   </div>  
 
