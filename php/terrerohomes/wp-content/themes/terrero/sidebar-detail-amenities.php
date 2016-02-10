@@ -1,6 +1,6 @@
 <?php 
 		  
-  $terms = get_the_terms( $post->ID, 'facility' );
+  $terms = get_the_terms( 'facility' );
 	
 	if ( $terms && ! is_wp_error( $terms ) ) {
 ?>

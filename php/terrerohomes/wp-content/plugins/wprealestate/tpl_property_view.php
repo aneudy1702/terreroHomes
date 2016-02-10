@@ -55,6 +55,12 @@ jQuery(window).load(function() {
 <!-- new detail page. terrero homes -->
 
 <div id="content" class="site-content listing-detail" role="main">
+		
+	<!-- social -->
+	<section>
+		<?php get_sidebar('social'); ?>
+	</section>
+	<!-- social -->
 	
 	<!-- slide show and quick details section -->
   <section class="upper-box">
@@ -62,13 +68,7 @@ jQuery(window).load(function() {
   		<?php get_sidebar('detail-upper-container'); ?>
   	</center>		
   </section>
-  <!-- slide show and quick details section -->
-	
-	<!-- social -->
-	<section>
-		<?php get_sidebar('social'); ?>
-	</section>
-	<!-- social -->
+  <!-- slide show and quick details section -->	
 
   <!-- description section -->
   <section>
