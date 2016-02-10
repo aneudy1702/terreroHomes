@@ -140,8 +140,7 @@ $(function(){
 		$('.multimedia').addClass(whichTab);
 
     if (whichTab == 'map') {
-      google.maps.event.trigger(map, 'resize');
-      map.setCenter(myOptions.center);     
+      // google.maps.event.trigger(map, 'resize');          
     }
 	});
 

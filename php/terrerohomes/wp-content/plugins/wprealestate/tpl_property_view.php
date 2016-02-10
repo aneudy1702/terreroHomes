@@ -64,9 +64,9 @@ jQuery(window).load(function() {
 	
 	<!-- slide show and quick details section -->
   <section class="upper-box">
-  	<center>
-  		<?php get_sidebar('detail-upper-container'); ?>
-  	</center>		
+  	
+	<?php get_sidebar('detail-upper-container'); ?>
+  			
   </section>
   <!-- slide show and quick details section -->	
 

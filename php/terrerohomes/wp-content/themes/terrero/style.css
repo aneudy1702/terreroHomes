@@ -598,6 +598,11 @@ input[type="reset"]:active {
   vertical-align: top;
 }
 
+.two-column-container .col:first-child {
+  margin-right: 30px;
+}
+
+
 .two-column-container .col.meta-info {
   width: 260px;
   margin-left: -5px;
