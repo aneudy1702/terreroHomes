@@ -30,8 +30,8 @@
 
   function getTerreoListings($featured = false, $popular = false, $amount = null){
     $args_property = array(
-      'post_type'=> 'property'
-      
+      'post_type'=> 'property',
+      'posts_per_page' => 500
       // 'paged' => get_query_var('paged'),
       // 's' => $_POST['sbpn']
     );
@@ -54,7 +54,13 @@
     
     foreach ($arr as $item) {
       if ($predicate($item)){
+        
         array_push($mapList, $item);
+        
+        if ($predicate($item) == "break") {          
+          break;
+        }
+
       }
     }
 
@@ -63,7 +69,7 @@
 
   // get the meta featured state
   function featuredState($id){
-    return getMetaData('et_er_featured', $id);
+    return getMetaData('et_er_property_featured', $id);
   }
 
   // filter listing by featured flag
@@ -71,8 +77,8 @@
 
     $filterFeatured = function($listing){
       $state = featuredState($listing->ID);
-      echo $state;
-      return $state == 'on';
+      
+      return $state == 'on' ? 'break' : false;
     };
 
     $featuredItems = terrero_map($listings, $filterFeatured);
@@ -82,7 +88,8 @@
 
   // add a fallback for when there is not featured items
   function getTreatedFeaturedListing() {    
-    $listings = getTerreoListings();    
+    $listings = getTerreoListings(); 
+
     $featuredItems = getFeaturedItems($listings);
     $featuredItem = array();
 
