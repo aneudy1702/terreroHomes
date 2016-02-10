@@ -1,6 +1,6 @@
 <div class="bottom-content">
 
-	<div id="">
+	<div class="col">
 		<div class="heading">
 			<?php _e( 'Description', 'wp-realestate' ); ?>
 		</div>
@@ -10,10 +10,11 @@
 		
 	</div>
 
-	echo
-	<?php echo getMetaData('et_er_facilities'); ?>
-	echo
-	<?php get_sidebar('detail-amenities'); ?>
+	<div class="col">
+		<?php get_sidebar('detail-amenities'); ?>
+	</div>
+
+	
 
 
 </div>

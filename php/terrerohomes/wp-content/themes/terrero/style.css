@@ -321,6 +321,25 @@ input[type="reset"]:active {
   vertical-align: middle;
 }
 
+.bottom-content {
+ padding: 15px 0;
+}
+
+.bottom-content .col {
+  display: inline-block;
+  width: 470px;
+  vertical-align: top;
+  margin: 5px;
+  /*border: 1px dotted #ccc;*/
+}
+.col .amenity {
+  width: 210px;
+  display: inline-block;
+  padding-bottom: 12px;
+  vertical-align: top;  
+}
+
+
 
 /*BORDER COLOR: #e2e2e2*/
 

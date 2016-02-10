@@ -1,13 +1,14 @@
 <?php 
 		  
-  $terms = get_the_terms( 'facility' );
+  $haveTerms = get_the_terms(get_the_ID(), 'facility' );
 	
-	if ( $terms && ! is_wp_error( $terms ) ) {
+	if ( $haveTerms && ! is_wp_error( $haveTerms ) ) {
+		$terms = get_the_terms(get_the_ID(), 'facility');
 ?>
-	<div style="width: 642px; margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px solid #f2f2f2;">
-	  <div class="bold" style="padding-bottom: 20px; font-size: 1.10em;">
-	    <?php _e( 'Facilities', 'wp-realestate' ); ?>
-	  </div>
+	<div>
+	  <div class="heading">
+			<?php _e( 'Amenities', 'wp-realestate' ); ?>
+		</div>
 
 	  <div class="" style="width: 640px;">
 	  	<!-- facilities iteration -->
@@ -15,7 +16,7 @@
 				foreach ($terms as $term) { 
 			?>
 			<!-- facility template -->
-				<div style="width: 210px; display: inline-block; padding-bottom: 12px; vertical-align: top;">
+			<div class="amenity">
 		      <table>
 		        <tbody>
 		          <tr>
