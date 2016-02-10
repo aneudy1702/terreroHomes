@@ -27,8 +27,8 @@
 </header>
 
 <?php 
-
-  function getTerreoListings($featured = false, $popular = false, $amount = null){
+  
+  function getTerreoListings($amount = null){
     $args_property = array(
       'post_type'=> 'property',
       'posts_per_page' => 500
@@ -46,20 +46,23 @@
 
     return get_posts($args_property);
 
-  }
+  }  
 
   // mimicate _.map or JS native map
-  function terrero_map($arr, $predicate){
-    $mapList = array();
-    
-    foreach ($arr as $item) {
-      if ($predicate($item)){
+  function terrero_map($arr = array(), $predicate){
+    $mapList = array();    
+    foreach ($arr as $item) {      
+      
+      $result = $predicate($item);
+      
+      if ($result){
         
         array_push($mapList, $item);
-        
-        if ($predicate($item) == "break") {          
+
+        if (gettype($result) == 'string') {          
+          
           break;
-        }
+        } 
 
       }
     }
@@ -73,12 +76,15 @@
   }
 
   // filter listing by featured flag
-  function getFeaturedItems($listings = array()) {    
-
+  function getFeaturedItems($listings=array()) {        
     $filterFeatured = function($listing){
       $state = featuredState($listing->ID);
       
-      return $state == 'on' ? 'break' : false;
+      $isFeatured = $state == 'on';
+      
+      $command = 'break';
+
+      return $isFeatured ? $command : false;
     };
 
     $featuredItems = terrero_map($listings, $filterFeatured);
@@ -86,9 +92,30 @@
     return $featuredItems;
   } 
 
+  function _getNonFeaturedItems($listings=array()) {        
+    
+    $filterNon = function($listing){
+      $state = featuredState($listing->ID);
+      
+      // var_dump($state);
+      
+      return $state != 'on';
+    };
+
+    $featuredItems = terrero_map($listings, $filterNon);
+
+    return $featuredItems;
+  } 
+
+  function getNonFeaturedItems($amount = 4){
+    $listings = getTerreoListings();
+    $nonFeaturedItems = _getNonFeaturedItems($listings);
+    
+    return array_slice($nonFeaturedItems, 0, $amount);
+  }
   // add a fallback for when there is not featured items
   function getTreatedFeaturedListing() {    
-    $listings = getTerreoListings(); 
+    $listings = getTerreoListings();
 
     $featuredItems = getFeaturedItems($listings);
     $featuredItem = array();

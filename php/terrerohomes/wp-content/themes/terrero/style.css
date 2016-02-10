@@ -353,6 +353,9 @@ input[type="reset"]:active {
 	aneudyabreu.com custom css [start]
 */
 
+.slide-info {
+  margin-top: 10px;
+}
 .featured-item {
   position: relative;
   width: 650px;

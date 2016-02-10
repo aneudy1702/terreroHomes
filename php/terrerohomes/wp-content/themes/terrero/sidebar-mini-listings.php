@@ -16,13 +16,13 @@
 <div class="mini-listing-list">
 	<header class="listing-title">
 		<span>
-			Popular istings
+			Latest Listings
 		</span>
 	</header>
 	<!-- repeat this item bellow -->
 	<div class="list">
 
-		<?php $popularListings = getTerreoListings(false, true, 4); ?>
+		<?php $popularListings = getNonFeaturedItems(); ?>
 
 		<?php foreach ($popularListings as $post) { ?>
 		<!-- for each start -->

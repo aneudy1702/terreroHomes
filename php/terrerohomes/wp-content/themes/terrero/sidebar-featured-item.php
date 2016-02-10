@@ -26,7 +26,7 @@
     <?php get_sidebar('img-slideshow-tmpl'); ?>
 
     <!-- slide info -->
-    <div>
+    <div class="slide-info">
       <table style="width: 100%;">
         <tbody>
           <tr>
