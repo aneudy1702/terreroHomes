@@ -15,8 +15,8 @@ $imgCount = count($imgUrls);
 ?>
 <div class="image-slide-show-container">
   <div class="slide-show terrero-slideshow">
-    <div class="carousel">
-      <ul>          
+    <div class="carousel flexslider">
+      <ul class="slides">          
         <?php foreach ($imgUrls as $imgURL) { ?>
 
         <li>            

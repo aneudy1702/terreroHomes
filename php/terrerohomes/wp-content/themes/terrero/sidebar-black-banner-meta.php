@@ -55,26 +55,23 @@ $property_imgs_ids = get_property_images_ids();
       <!-- RENT -->
       <!-- rent price -->
       <div>
-        <?php echo ET_RE_Currency . $paymentAmount; ?>
+        <?php echo ET_RE_Currency . $paymentAmount; ?> 
+        <?php if ($paymentType == 'Rent') {?>
+        
+          <?php echo '/ ' . $paymentFrequency; ?>
+        
+        <?php } ?>
       </div>
       <!-- rent price -->
 
       <!-- rent tenure -->
-      <?php if ($paymentType == 'Rent') {?>
-        <div>
-          <?php echo $paymentFrequency; ?>
-        </div>
-      <?php } ?>
+      
       
       <!-- rent price -->
       <!-- RENT -->
     </div>
     <div class="small-details">
-      <ul>
-        <li>some</li>
-        <li>details</li>
-        <li>here</li>
-      </ul>
+      <?php get_sidebar('meta-box'); ?>
     </div>
   </div>
 

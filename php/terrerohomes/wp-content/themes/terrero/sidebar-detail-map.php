@@ -1,4 +1,4 @@
-<div id="map_canvas" style="width:430px; height:430px;"></div>
+<div id="map_canvas" style="width:430px; height:276px;"></div>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
 <script type="text/javascript">
   var geocoder;

@@ -10,13 +10,5 @@
   <div class="info-container">
     <a href="#availabilityForm">Check Availability</a>          
   </div>
-  <!-- slide info -->
-
-
-	<!-- slide show -->
-	<?php get_sidebar('detail-slideshow'); ?> 
-  <!-- slide show -->   
-
-
 
 </div>

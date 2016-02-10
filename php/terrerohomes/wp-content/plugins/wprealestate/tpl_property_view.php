@@ -57,19 +57,19 @@ jQuery(window).load(function() {
 <div id="content" class="site-content listing-detail" role="main">
 	
 	<!-- slide show and quick details section -->
-  <section class="">
-		<?php get_sidebar('detail-upper-container'); ?>
+  <section class="upper-box">
+  	<center>
+  		<?php get_sidebar('detail-upper-container'); ?>
+  	</center>		
   </section>
   <!-- slide show and quick details section -->
 	
-	
-	<!-- Details section -->
-	<section>	
-		<?php get_sidebar('detail-meta'); ?>
+	<!-- social -->
+	<section>
+		<?php get_sidebar('social'); ?>
 	</section>
-	<!-- Details Section -->
+	<!-- social -->
 
-  
   <!-- description section -->
   <section>
   	<?php get_sidebar('detail-description'); ?>
