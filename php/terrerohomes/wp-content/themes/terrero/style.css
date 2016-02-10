@@ -665,7 +665,6 @@ input[type="reset"]:active {
   position: absolute;
   top: 0;
   left: 0;
-  display: none;
   
 }
 .multimedia-nav {
@@ -700,11 +699,11 @@ input[type="reset"]:active {
 
 .multimedia .photo-slider-container,
 .multimedia .map-container {
-  display: none;
+  visibility: hidden;
 }
 .multimedia.photo .photo-slider-container,
 .multimedia.map .map-container {
-  display: block;
+  visibility: visible;
 }
 
 .listing-detail .hotel-details-view-container .slide-show-address-box div {

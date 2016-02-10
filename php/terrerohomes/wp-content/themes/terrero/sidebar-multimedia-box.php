@@ -11,7 +11,7 @@
     <!-- photos -->
     Photos (<?php echo count($property_imgs_ids); ?>)
   </a>
-  <a class="nav-toggle" data-which-tab="map" href="javascript:;">        
+  <a class="nav-toggle map" data-which-tab="map" href="javascript:;">        
     Map
   </a>
 </div>

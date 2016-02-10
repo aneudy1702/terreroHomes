@@ -3,7 +3,7 @@
 <script type="text/javascript">
   var geocoder;
   var map;
-  var address ='<?php echo $address ?>';
+  var address ='<?php echo getMetaAddress(); ?>';
   function initialize() {
     geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(-34.397, 150.644);

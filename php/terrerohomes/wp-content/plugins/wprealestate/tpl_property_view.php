@@ -93,7 +93,7 @@ jQuery(window).load(function() {
 
 </div>
 
-<div class="contact-agent-form">
+<div style="display:none;" class="contact-agent-form">
 
 	<?php  get_sidebar('contact-agent-form'); ?>
 

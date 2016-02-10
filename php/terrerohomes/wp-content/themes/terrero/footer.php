@@ -130,12 +130,19 @@ $(function(){
 			map: 'photo'
 		};
 
+
+
 		// update tab menus
 		$('.nav-toggle').removeClass('active');
 		$link.addClass('active');		
 		// update actual tab
 		$('.multimedia').removeClass(opositeClass[whichTab]);
 		$('.multimedia').addClass(whichTab);
+
+    if (whichTab == 'map') {
+      google.maps.event.trigger(map, 'resize');
+      map.setCenter(myOptions.center);     
+    }
 	});
 
 	$('.flexslider').flexslider({
