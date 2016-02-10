@@ -149,7 +149,9 @@
   }
 
   function getPrice() {
-    return getMetaData('et_er_price');
+    $salePrice = getMetaData('et_er_price');
+    $rentPrice = getMetaData('et_er_rent_price');
+    return $salePrice > 0 ? $salePrice : $rentPrice;
   }
 
 ?>
