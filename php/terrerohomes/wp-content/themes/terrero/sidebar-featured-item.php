@@ -40,17 +40,17 @@
             </td>
             <td>
               <div style="font-size: 1.45em; color: #005826; text-align: right;">
-                $4,365
+                <?php echo getPrice(); ?>
               </div>
               <div style="font-size: 0.95em; margin-top: 4px; color: #666666; text-align: right;">
-                Per Month
+                <?php echo getMetaData('et_er_rent_tenure'); ?>
               </div>
             </td>
             <td style="width: 20px;">
             </td>
             <td style="padding-left: 20px; border-left: 1px solid #eeeeee;">
               <div class="font-size-90 bold view-details-button">
-                <a href="/terrerohomes/property/?p_id=44">View Details</a>
+                <a href="/terrerohomes/property/?p_id=<?php echo get_the_ID(); ?>">View Details</a>
               </div>
             </td>
           </tr>

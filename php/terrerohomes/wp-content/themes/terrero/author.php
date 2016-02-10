@@ -8,7 +8,7 @@
  *
  * @package WordPress
  * @subpackage Terrero_theme
- * @since Twenty Twelve 1.0
+ * @since Terrero Homes 1.0
  */
 
 get_header(); ?>

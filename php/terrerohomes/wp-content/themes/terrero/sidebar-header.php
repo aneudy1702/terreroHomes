@@ -141,4 +141,8 @@
     return $address;
   }
 
+  function getPrice() {
+    return getMetaData('et_er_price');
+  }
+
 ?>

@@ -12,6 +12,8 @@
 
 	<div class="col">
 		<?php get_sidebar('detail-amenities'); ?>
+
+		<?php get_sidebar('detail_agent'); ?>
 	</div>
 
 	

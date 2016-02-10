@@ -34,7 +34,7 @@
       </div>
 
 
-      <table>
+      <!-- <table>
         <tbody>
           <tr>
             <td style="vertical-align: top;">
@@ -102,7 +102,7 @@
             </td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
       <div style="clear: both;"></div>
     </div>
   </div>
