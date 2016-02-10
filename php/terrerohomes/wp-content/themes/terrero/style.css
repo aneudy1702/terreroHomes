@@ -364,11 +364,12 @@ input[type="reset"]:active {
   position: absolute;
   width: 130px;
   height: 129px;
-  right: -6px;
-  top: -7px;
+  right: -2px;
+  top: -3px;
   background-image: url(images/featured_ribbon_red.png);
   background-size: contain;
   background-repeat: no-repeat;
+  z-index: 9999;
 }
 
 .featured-item td {
