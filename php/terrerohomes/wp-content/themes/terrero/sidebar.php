@@ -16,7 +16,7 @@
 <div class="mini-listing-list">
 	<header class="listing-title">
 		<span>
-			Popular Listings
+			Empty Component Or misspelled component name.
 		</span>
 	</header>
 	<!-- repeat this item bellow -->
@@ -34,7 +34,7 @@
 	        <!-- mini description -->
 	        <td class="mini-col mini-description">
 	          <div class="title">
-	            <a alt="link to listing" href="#">listing title here</a>
+	            <a alt="link to listing" href="#"> go check it out, dude!</a>
 	          </div>
 	        </td>
 	      </tr>
