@@ -54,13 +54,7 @@ jQuery(window).load(function() {
 
 <!-- new detail page. terrero homes -->
 
-<div id="content" class="site-content listing-detail" role="main">
-		
-	<!-- social -->
-	<section>
-		<?php get_sidebar('social'); ?>
-	</section>
-	<!-- social -->
+<div id="content" class="site-content listing-detail" role="main">	
 	
 	<!-- slide show and quick details section -->
   <section class="upper-box">
@@ -78,18 +72,24 @@ jQuery(window).load(function() {
 
 	
 	<!-- features and amenities  section -->
-	<section>
+	<!-- <section>
 		<?php get_sidebar('detail-amenities'); ?>
-	</section>
+	</section> -->
 	<!-- features and amenities  section -->
 	
 	
 	<!-- map section -->
-	<section>
+	<!-- <section>
 		<?php get_sidebar('detail-map'); ?>
 		
-	</section>
+	</section> -->
 	<!-- map section -->
+
+	<!-- social -->
+	<section>
+		<?php get_sidebar('social'); ?>
+	</section>
+	<!-- social -->
 
 </div>
 

@@ -181,4 +181,11 @@
     return $salePrice > 0 ? $salePrice : $rentPrice;
   }
 
+  function getAgent() {    
+    
+    // $authordata = get_userdata( $user_id );
+    return the_author_meta();
+
+  }
+
 ?>

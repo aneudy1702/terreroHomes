@@ -647,7 +647,7 @@ input[type="reset"]:active {
 
 .banner-container .column {
   /*border: 1px solid;*/
-  width: 300px;
+  max-width: 300px;
   margin: 0 15px;
   display: inline-block;
   text-align: left;
@@ -679,17 +679,52 @@ input[type="reset"]:active {
   /*margin-right: 30px;*/
 }
 
-
+.contact-details .col {
+  display: inline-block;
+  vertical-align: top;
+}
+.agent .banner {
+  background: navy;
+  padding: 10px 15px;
+  text-align: center;
+  display: block;
+  color: #fff;
+  font-weight: bold;
+}
+.contact-details .contact-details {
+  padding: 5px;
+}
+.contact-details .agent-info li:nth-child(odd) {
+  background: #fff;
+}
+.contact-details .agent-info li {
+  padding: 5px;
+}
+.contact-details .agent-info li label {
+  font-weight: bold;
+  width: 50px;
+  display: inline-block;
+}
+.contact-details .contact-details .agent-info
 .two-column-container .col.meta-info {
   width: 260px;
   margin-left: -5px;
 }
 
+.listing-detail .agent-column-container,
 .listing-detail .hotel-details-view-container {
   width: auto;
   display: inline-block;
+  vertical-align: top;
 }
-
+.listing-detail .agent-column-container .agent {
+    max-width: 305px;
+    min-height: 100px;
+    border: 1px #ccc solid;
+    box-sizing: border-box;
+    margin-left: 10px;
+    background: #eee;
+}
 .payment-amount {
   padding: 10px 10px;
   background: #499bea;
